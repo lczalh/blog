@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>iOS Fastlane自动化打包ipa | lczalh</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="少一点抱怨，多一点努力">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="iOS Fastlane自动化打包ipa | lczalh">
+    <meta name="twitter:description" content="少一点抱怨，多一点努力">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="iOS Fastlane自动化打包ipa | lczalh">
+    <meta property="og:description" content="少一点抱怨，多一点努力">
+
+    
+    <meta name="author" content="Liu Chao Zheng">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="lczalh" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2019/02/28/2019-2-28 Fastlane自动化打包/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 lczalh 的主页"><img src="/images/avatar.jpg" width="80" alt="lczalh logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for lczalh">lczalh</a></h1>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">少一点抱怨，多一点努力</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/lczalh" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-02-28T10:00:41.000Z" class="post-list__meta--date date">2019-02-28</time> &#8226; <span class="post-meta__tags tags">于 
+  <a class="tag-link" href="/tags/iOS/">iOS</a>
+ </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">iOS Fastlane自动化打包ipa</h1>
+  </header>
+
+  <section class="post">
+    <p>Fastlane是一套使用Ruby写的自动化工具集，旨在简化Android和iOS的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布App。<a href="https://docs.fastlane.tools/" title="Fastlane文档" target="_blank" rel="noopener">Fastlane文档</a></p>
+<h2 id="1-安装Xcode命令行工具"><a href="#1-安装Xcode命令行工具" class="headerlink" title="1. 安装Xcode命令行工具"></a>1. 安装Xcode命令行工具</h2><p>安装命令: <code>$ xcode-select --install</code><br>提示: <code>xcode-select: error: command line tools are already installed, use &quot;Software Update&quot; to install updates</code>  表示已经安装</p>
+<h2 id="2-安装Fastlane"><a href="#2-安装Fastlane" class="headerlink" title="2. 安装Fastlane"></a>2. 安装Fastlane</h2><p>安装命令: <code>$ sudo gem install fastlane -NV</code> 或 <code>brew cask install fastlane</code><br>检查是否安装成功 <code>fastlane --version</code></p>
+<h2 id="3-初始化Fastlane"><a href="#3-初始化Fastlane" class="headerlink" title="3. 初始化Fastlane"></a>3. 初始化Fastlane</h2><p>cd到项目路径：<code>$ cd /Users/tanitsubukousha/Desktop/GLGL</code><br>初始化Fastlane：<code>$ fastlane init</code><br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/fastlane初始化.png?raw=true" alt="markdown" title="Fastlane初始化"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 📸  Automate screenshots (自动化截图)</span><br><span class="line">2. 👩‍✈️  Automate beta distribution to TestFlight (自动testfilght型配置)</span><br><span class="line">3. 🚀  Automate App Store distribution (自动发布型配置)</span><br><span class="line">4. 🛠  Manual setup - manually setup your project to automate your (需要手动配置内容)</span><br></pre></td></tr></table></figure></p>
+<p>我这里选择 4  等待一下会让你按回车 (共三次)  即安装成功！<br>在项目中会生成 fastlane文件夹、Gemfile、Gemfile.lock<br>fastlane文件夹：Appfile (存储有关开发者账号相关信息)、Fastfile (核心文件，主要用于 命令行调用和处理具体的流程)</p>
+<h2 id="4-文件配置"><a href="#4-文件配置" class="headerlink" title="4. 文件配置"></a>4. 文件配置</h2><h3 id="4-1-打开Appfile文件-修改以下配置"><a href="#4-1-打开Appfile文件-修改以下配置" class="headerlink" title="4.1 打开Appfile文件 修改以下配置"></a>4.1 打开Appfile文件 修改以下配置</h3><p><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/Appfile.png?raw=true" alt="markdown" title="Appfile"></p>
+<h3 id="4-2-打开Fastfile文件-修改以下配置"><a href="#4-2-打开Fastfile文件-修改以下配置" class="headerlink" title="4.2 打开Fastfile文件 修改以下配置"></a>4.2 打开Fastfile文件 修改以下配置</h3><p><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/Fastfile.png?raw=true" alt="markdown" title="Fastfile"></p>
+<h3 id="4-3-关于export-method方法"><a href="#4-3-关于export-method方法" class="headerlink" title="4.3 关于export_method方法"></a>4.3 关于export_method方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app-store,   #AppStore正式生产环境包</span><br><span class="line">ad-hoc,  #生产测试包</span><br><span class="line">enterprise,  #企业包</span><br><span class="line">development  #开发测试包</span><br></pre></td></tr></table></figure>
+<h2 id="5-证书管理插件"><a href="#5-证书管理插件" class="headerlink" title="5. 证书管理插件"></a>5. 证书管理插件</h2><p>match是fastlane的一个功能组件, 能自动从苹果官方上下载证书和pp文件同步到我们的git仓库中<br>cd到项目路径：<code>$ cd /Users/tanitsubukousha/Desktop/GLGL</code><br>安装命令: <code>$ fastlane match init</code><br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/match.png?raw=true" alt="markdown" title="match"></p>
+<h3 id="5-1-先删除旧证书和pp文件"><a href="#5-1-先删除旧证书和pp文件" class="headerlink" title="5.1 先删除旧证书和pp文件"></a>5.1 先删除旧证书和pp文件</h3><p>分别执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ fastlane match nuke development</span><br><span class="line">$ fastlane match nuke distribution</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-2-生成证书和pp文件"><a href="#5-2-生成证书和pp文件" class="headerlink" title="5.2 生成证书和pp文件"></a>5.2 生成证书和pp文件</h3><p>cd到项目路径：<code>$ cd /Users/tanitsubukousha/Desktop/GLGL</code><br>分别执行以下命令（首次执行时,会要求输入Git仓库密码,用来对证书进行加密,后续其他机器获取证书时使用该密码进行解密）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ fastlane match development</span><br><span class="line">$ fastlane match adhoc</span><br><span class="line">$ fastlane match appstore</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-打包ipa"><a href="#6-打包ipa" class="headerlink" title="6. 打包ipa"></a>6. 打包ipa</h2><p>打包命: <code>$ fastlane test</code>  test是Fastfile文件中的lane名称<br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/ipa.png?raw=true" alt="markdown" title="ipa"></p>
+<h2 id="7-问题"><a href="#7-问题" class="headerlink" title="7. 问题"></a>7. 问题</h2><h3 id="7-1-Automatic-signing-is-disabled-and-unable-to-generate-a-profile-To-enable-automatic-signing-pass-allowProvisioningUpdates-to-xcodebuild"><a href="#7-1-Automatic-signing-is-disabled-and-unable-to-generate-a-profile-To-enable-automatic-signing-pass-allowProvisioningUpdates-to-xcodebuild" class="headerlink" title="7.1 Automatic signing is disabled and unable to generate a profile. To enable automatic signing, pass -allowProvisioningUpdates to xcodebuild."></a>7.1 <code>Automatic signing is disabled and unable to generate a profile. To enable automatic signing, pass -allowProvisioningUpdates to xcodebuild.</code></h3><p>Xcode 9 之后禁止其直接访问钥匙串, 导致持续集成时执行 xcode build 会出现找不到证书或证书配置文件。修改 fastlane 配置文件来解决<br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/7.1问题.png?raw=true" alt="markdown" title="7.1问题"><br><code>export_xcargs: &quot;-allowProvisioningUpdates&quot;</code></p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/03/04/2019-3-04 XcodeBuild打包ipa/" title="iOS XcodeBuild打包ipa">iOS XcodeBuild打包ipa</a></h2>
+                <p class="excerpt">
+                
+                XcodeBuild是一个命令行工具，可以用来对Xcode工程或工作区进行编译、查找、分析、测试等各种操作
+1. 进入项目的目录$ cd /Users/tanitsubukousha/Desktop/GLGL   /Users/tanitsubukousha/Desktop/GLGL: 为你的项目路
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-03-04T02:07:13.000Z" class="post-list__meta--date date">2019-03-04</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/iOS/">iOS</a>
+</span><a class="btn-border-small" href="/2019/03/04/2019-3-04 XcodeBuild打包ipa/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/02/11/2019-2-12 hexo搭建/" title="mac OS 搭建Hexo个人博客">mac OS 搭建Hexo个人博客</a></h2>
+                <p class="excerpt">
+                
+                Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo文档
+1. 博客效果图
+2. 创建GitHub仓库
+ Respository name 中的lczalh.github.io 的lczalh 一定与
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-02-11T10:00:41.000Z" class="post-list__meta--date date">2019-02-11</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/Hexo/">Hexo</a>
+</span><a class="btn-border-small" href="/2019/02/11/2019-2-12 hexo搭建/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 Liu Chao Zheng - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>

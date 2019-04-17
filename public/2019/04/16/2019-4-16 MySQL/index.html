@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>MySQL的基本使用 | lczalh</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="少一点抱怨，多一点努力">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MySQL的基本使用 | lczalh">
+    <meta name="twitter:description" content="少一点抱怨，多一点努力">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MySQL的基本使用 | lczalh">
+    <meta property="og:description" content="少一点抱怨，多一点努力">
+
+    
+    <meta name="author" content="Liu Chao Zheng">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="lczalh" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2019/04/16/2019-4-16 MySQL/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 lczalh 的主页"><img src="/images/avatar.jpg" width="80" alt="lczalh logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for lczalh">lczalh</a></h1>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">少一点抱怨，多一点努力</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/lczalh" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-04-16T12:48:01.000Z" class="post-list__meta--date date">2019-04-16</time> &#8226; <span class="post-meta__tags tags">于 
+  <a class="tag-link" href="/tags/MySQL/">MySQL</a>
+ </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">MySQL的基本使用</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="1-DDL：操作数据库"><a href="#1-DDL：操作数据库" class="headerlink" title="1. DDL：操作数据库"></a>1. DDL：操作数据库</h2><h3 id="1-1-增"><a href="#1-1-增" class="headerlink" title="1.1 增"></a>1.1 增</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">创建数据库：</span><br><span class="line">    方式一：CREATE DATABASE 数据库名; -- 例：CREATE DATABASE mysql;</span><br><span class="line">    方式二：CREATE DATABASE 数据库名 CHARSET 编码; -- CREATE DATABASE mysql CHARSET utf8;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-删"><a href="#1-2-删" class="headerlink" title="1.2 删"></a>1.2 删</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除数据库：DROP DATABASE 数据库名; -- 例：DROP DATABASE mysql;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-改"><a href="#1-3-改" class="headerlink" title="1.3 改"></a>1.3 改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改正在使用的数据库：USE 数据库名; -- 例：USE mysql;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-查"><a href="#1-4-查" class="headerlink" title="1.4 查"></a>1.4 查</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查询正在使用的数据库：SELECT DATABASE();</span><br><span class="line">查询mysql中的所有数据库：SHOW DATABASES;</span><br><span class="line">查询某一个数据库的详细信息：SHOW CREATE DATABASE 数据库名; -- 例：SHOW CREATE DATABASE  mysql;</span><br></pre></td></tr></table></figure>
+<h2 id="2-DDL：操作数据库表"><a href="#2-DDL：操作数据库表" class="headerlink" title="2. DDL：操作数据库表"></a>2. DDL：操作数据库表</h2><h3 id="2-1-增"><a href="#2-1-增" class="headerlink" title="2.1 增"></a>2.1 增</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">创建表：</span><br><span class="line">    CREATE TABLE 数据库名(</span><br><span class="line">        字段名 数据类型(长度) 约束,</span><br><span class="line">        字段名 数据类型(长度) 约束</span><br><span class="line">    );</span><br><span class="line">    例：</span><br><span class="line">    CREATE TABLE student(</span><br><span class="line">        sid INT PRIMARY KEY, -- 主键约束</span><br><span class="line">        sname VARCHAR(30),</span><br><span class="line">        sage INT</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-删"><a href="#2-2-删" class="headerlink" title="2.2 删"></a>2.2 删</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除表：DROP TABLE 表名; -- 例：DROP TABLE student;</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-查"><a href="#2-3-查" class="headerlink" title="2.3 查"></a>2.3 查</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查看一个表的详细信息：DESC 表名; -- 例：DESC student</span><br><span class="line">查看所有表： SHOW TABLES;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-改"><a href="#2-4-改" class="headerlink" title="2.4 改"></a>2.4 改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改表名：RENAME TABLE 表名 TO 新表名; -- 例：RENAME TABLE student TO studentTwo;</span><br></pre></td></tr></table></figure>
+<h2 id="3-DDL：操作数据库表结构"><a href="#3-DDL：操作数据库表结构" class="headerlink" title="3. DDL：操作数据库表结构"></a>3. DDL：操作数据库表结构</h2><h3 id="3-1-增"><a href="#3-1-增" class="headerlink" title="3.1 增"></a>3.1 增</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">向表中增加一列：ALTER TABLE 表名 ADD 字段名 数据类型(长度) 约束; -- 例：ALTER TABLE student ADD phone VARCHAR(30);</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-删"><a href="#3-2-删" class="headerlink" title="3.2 删"></a>3.2 删</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">向表中删除一列：ALTER TABLE 表名 DROP 字段名; -- 例：ALTER TABLE student DROP phone;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-改"><a href="#3-3-改" class="headerlink" title="3.3 改"></a>3.3 改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修改表中的字段名：ALTER TABLE 表名 CHANGE 字段名 新字段名 数据类型(长度) 约束; -- 例：ALTER TABLE student CHANGE sname mname VARCHAR(30);</span><br><span class="line"></span><br><span class="line">修改表中的字段中的变量类型和约束：ALTER TABLE 表名 MODIFY 字段名 数据类型(长度) 约束; -- 例：ALTER TABLE student MODIFY sname VARCHAR(10);</span><br><span class="line"></span><br><span class="line">修改表的字符集：ALTER TABLE 表名 CHARACYER SET 编码; -- 例：ALTER TABLE student CHARACYER SET utf8;</span><br></pre></td></tr></table></figure>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/04/02/2019-4-02 iOS开发 RxDataSources/" title="iOS RxDataSources">iOS RxDataSources</a></h2>
+                <p class="excerpt">
+                
+                RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装
+1. UITableView数据源类型：RxTableViewSectionedReloadDataSource，RxTableViewSectioned
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-04-02T02:48:47.000Z" class="post-list__meta--date date">2019-04-02</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/iOS/">iOS</a>
+</span><a class="btn-border-small" href="/2019/04/02/2019-4-02 iOS开发 RxDataSources/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 Liu Chao Zheng - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
