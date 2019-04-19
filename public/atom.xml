@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-17T02:53:44.903Z</updated>
+  <updated>2019-04-17T03:26:10.697Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MAC 显示或隐藏.git目录</title>
+    <link href="http://yoursite.com/2019/04/17/2019-4-17%20MAC%20%E6%98%BE%E7%A4%BA%E6%88%96%E9%9A%90%E8%97%8F.git%E7%9B%AE%E5%BD%95/"/>
+    <id>http://yoursite.com/2019/04/17/2019-4-17 MAC 显示或隐藏.git目录/</id>
+    <published>2019-04-17T03:08:22.000Z</published>
+    <updated>2019-04-17T03:26:10.697Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE"><a href="#1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE" class="headerlink" title="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE"></a>1. 显示.git目录：<code>$ defaults write com.apple.finder AppleShowAllFiles TRUE</code></h2><h2 id="2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE"><a href="#2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE" class="headerlink" title="2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE"></a>2. 隐藏.git目录：<code>$ defaults write com.apple.finder AppleShowAllFiles FALSE</code></h2><h2 id="3-重启Finder：-killall-Finder"><a href="#3-重启Finder：-killall-Finder" class="headerlink" title="3. 重启Finder：$ killall Finder"></a>3. 重启Finder：<code>$ killall Finder</code></h2><h2 id="4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可"><a href="#4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可" class="headerlink" title="4. 当你的git仓库中还存在另一个git仓库B，提交时报错changes not staged for commit，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可"></a>4. 当你的git仓库中还存在另一个git仓库B，提交时报错<code>changes not staged for commit</code>，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE&quot;&gt;&lt;a href=&quot;#1-显示-git目录：-defaults-write-com-apple-finder-AppleShowA
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL的基本使用</title>

@@ -63,4 +63,9 @@ $userName 主机用户名
 $password 主机密码
 ```
 
+## 8. 对应用重签名
+### 8.1 将得到的ceshi.ipa 进行解压  `$ unzip ceshi.ipa`
+### 8.2 删除旧签名 `$ rm -rf Payload/ceshi.app/_CodeSignature/`
+### 8.3 将 `$ codesign -d --entitlements - Payload/XXX.app` 命令打印的内容,创建entitlements.plist文件
+### 8.4 签名 `codesign -f -s "iPhone Distribution: XXX" --entitlements entitlements.plist Payload/ceshi.app`
 
