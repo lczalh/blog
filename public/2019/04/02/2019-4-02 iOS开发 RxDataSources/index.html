@@ -1,245 +1,692 @@
 <!DOCTYPE html>
-<html lang="z">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
     
-    <title>iOS RxDataSources | lczalh</title>
-    <meta name="renderer" content="webkit">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <meta name="description" content="少一点抱怨，多一点努力">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="iOS RxDataSources | lczalh">
-    <meta name="twitter:description" content="少一点抱怨，多一点努力">
-
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="iOS RxDataSources | lczalh">
-    <meta property="og:description" content="少一点抱怨，多一点努力">
-
     
-    <meta name="author" content="Liu Chao Zheng">
-    
-    <link rel="stylesheet" href="/css/vno.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  
 
-    
-    <link rel="icon" href="/images/avatar-small.png">
-    
+  
 
-    <meta name="generator" content="hexo"/>
-    
-    <link rel="alternate" type="application/rss+xml" title="lczalh" href="/atom.xml">
-    
+  
 
-    <link rel="canonical" href="http://yoursite.com/2019/04/02/2019-4-02 iOS开发 RxDataSources/"/>
+  
 
-                 
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="iOS,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lczalh" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装 1. UITableView数据源类型：RxTableViewSectionedReloadDataSource，RxTableViewSectionedAnimatedDataSource 2. UICollectionView数据源类型：RxTabl">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS RxDataSources">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/2019-4-02 iOS开发 RxDataSources/index.html">
+<meta property="og:site_name" content="lczalh">
+<meta property="og:description" content="RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装 1. UITableView数据源类型：RxTableViewSectionedReloadDataSource，RxTableViewSectionedAnimatedDataSource 2. UICollectionView数据源类型：RxTabl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-22T08:26:04.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS RxDataSources">
+<meta name="twitter:description" content="RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装 1. UITableView数据源类型：RxTableViewSectionedReloadDataSource，RxTableViewSectionedAnimatedDataSource 2. UICollectionView数据源类型：RxTabl">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/02/2019-4-02 iOS开发 RxDataSources/">
+
+
+
+
+
+  <title>iOS RxDataSources | lczalh</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
-<body class="home-template no-js">
-    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <span class="mobile btn-mobile-menu">
-        <i class="fa fa-list btn-mobile-menu__icon"></i>
-        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lczalh</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/2019-4-02 iOS开发 RxDataSources/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Chao Zheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lczalh">
     </span>
 
     
-<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
-  <div class="panel-main">
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
+      <header class="post-header">
 
-        <a href="/" title="前往 lczalh 的主页"><img src="/images/avatar.jpg" width="80" alt="lczalh logo" class="panel-cover__logo logo"></a>
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for lczalh">lczalh</a></h1>
         
-        <hr class="panel-cover__divider">
-        <p class="panel-cover__description">少一点抱怨，多一点努力</p>
-        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+          <h1 class="post-title" itemprop="name headline">iOS RxDataSources</h1>
+        
 
-        <div class="navigation-wrapper">
-          <div>
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+        <div class="post-meta">
+          <span class="post-time">
             
-            </ul>
-          </nav>
-          </div>
-          <div>
-          <nav class="cover-navigation navigation--social">
-  <ul class="navigation">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T10:48:47+08:00">
+                2019-04-02
+              </time>
+            
 
-  <!-- Weibo-->
-  
+            
 
-  <!-- Github -->
-  
-  <li class="navigation__item">
-    <a href="https://github.com/lczalh" title="GitHub" target="_blank">
-      <i class="social fa fa-github"></i>
-      <span class="label">Github</span>
-    </a>
-  </li>
+            
+          </span>
 
+          
 
-<!-- Stack Overflow -->
-        
+          
+            
+          
 
-  <!-- Google Plus -->
-  
+          
+          
 
-<!-- Facebook -->
+          
 
-  
-<!-- Twitter -->
+          
 
-  
+          
 
-  <li class="navigation__item">
-    <a href="/atom.xml" title="RSS" target="_blank">
-      <i class="social fa fa-rss"></i>
-      <span class="label">RSS</span>
-    </a>
-  </li>
-
-
-
-  </ul>
-</nav>
-
-          </div>
         </div>
+      </header>
+    
 
-      </div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-    </div>
+      
+      
 
-    <div class="panel-cover--overlay cover-purple"></div>
-  </div> 
-</header>
-
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner">
-            <article class="post-container post-container--single">
-
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="2019-04-02T02:48:47.000Z" class="post-list__meta--date date">2019-04-02</time> &#8226; <span class="post-meta__tags tags">于 
-  <a class="tag-link" href="/tags/iOS/">iOS</a>
- </span>
-      <span class="page-pv">
-       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
-      </span> 
-   
-    </div>
-    <h1 class="post-title">iOS RxDataSources</h1>
-  </header>
-
-  <section class="post">
-    <p>RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装</p>
+      
+        <p>RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装</p>
 <h2 id="1-UITableView"><a href="#1-UITableView" class="headerlink" title="1. UITableView"></a>1. UITableView</h2><p>数据源类型：<code>RxTableViewSectionedReloadDataSource</code>，<code>RxTableViewSectionedAnimatedDataSource</code></p>
 <h2 id="2-UICollectionView"><a href="#2-UICollectionView" class="headerlink" title="2. UICollectionView"></a>2. UICollectionView</h2><p>数据源类型：<code>RxTableViewSectionedReloadDataSource</code>，<code>RxCollectionViewSectionedAnimatedDataSource</code></p>
 <h2 id="3-ModelType"><a href="#3-ModelType" class="headerlink" title="3. ModelType"></a>3. ModelType</h2><p>模型类型：<code>SectionModel</code>，<code>AnimatableSectionModel</code></p>
 <h2 id="4-使用动画数据源，自定义模型需遵守IdentifiableType协议"><a href="#4-使用动画数据源，自定义模型需遵守IdentifiableType协议" class="headerlink" title="4. 使用动画数据源，自定义模型需遵守IdentifiableType协议"></a>4. 使用动画数据源，自定义模型需遵守<code>IdentifiableType</code>协议</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class NewsListModel: Object,Mappable &#123;</span><br><span class="line">    @objc dynamic var publishTime: String? // 发布时间</span><br><span class="line">    @objc dynamic var category: String? // 类型</span><br><span class="line">    @objc dynamic var source: String? // 来源</span><br><span class="line">    @objc dynamic var newsId: String? // 新闻ID</span><br><span class="line">    @objc dynamic var title: String? // 标题</span><br><span class="line">    @objc dynamic var newsImg: String? //新闻小图片url</span><br><span class="line"></span><br><span class="line">    required convenience init?(map: Map) &#123;</span><br><span class="line">        self.init()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    func mapping(map: Map) &#123;</span><br><span class="line">        publishTime   &lt;- map[&quot;publishTime&quot;]</span><br><span class="line">        category   &lt;- map[&quot;category&quot;]</span><br><span class="line">        source   &lt;- map[&quot;source&quot;]</span><br><span class="line">        newsId   &lt;- map[&quot;newsId&quot;]</span><br><span class="line">        title   &lt;- map[&quot;title&quot;]</span><br><span class="line">        newsImg   &lt;- map[&quot;newsImg&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension NewsListModel: IdentifiableType &#123;</span><br><span class="line">    var identity: NewsListModel &#123;</span><br><span class="line">    return self</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    typealias Identity = NewsListModel</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="5-Demo"><a href="#5-Demo" class="headerlink" title="5. Demo"></a>5. <a href="https://github.com/lczalh/Diary" target="_blank" rel="noopener">Demo</a></h2>
-  </section>
-
-</article>
-
-<section class="read-more">
-           
+      
+    </div>
     
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">Newer Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2019/04/16/2019-4-16 MySQL/" title="MySQL的基本使用">MySQL的基本使用</a></h2>
-                <p class="excerpt">
-                
-                
-1. DDL（数据定义语言）1.1 操作数据库1.1.1 增创建数据库：12方式一：CREATE DATABASE 数据库名; -- 例：CREATE DATABASE mysql;方式二：CREATE DATABASE 数据库名 CHARSET 编码; -- 例：CREATE DATABASE 
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2019-04-16T12:48:01.000Z" class="post-list__meta--date date">2019-04-16</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/MySQL/">MySQL</a>
-</span><a class="btn-border-small" href="/2019/04/16/2019-4-16 MySQL/">继续阅读</a></div>
-                           
-            </div>
-        
-        
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2019/03/28/2019-3-28 iOS开发 实时检测网络状态/" title="iOS Alamofire实时检测网络状态">iOS Alamofire实时检测网络状态</a></h2>
-                <p class="excerpt">
-                
-                实时检测网络状态
-1. 创建全局NetworkReachabilityManager对象1let newsHomeNetworkReachabilityManager = NetworkReachabilityManager(host: &amp;quot;http://www.baidu.com&amp;quot
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2019-03-28T01:43:23.000Z" class="post-list__meta--date date">2019-03-28</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/iOS/">iOS</a>
-</span><a class="btn-border-small" href="/2019/03/28/2019-3-28 iOS开发 实时检测网络状态/">继续阅读</a></div>
-                       
-            </div>
-        
-     
-   
-   
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/28/2019-3-28 iOS开发 实时检测网络状态/" rel="next" title="iOS Alamofire实时检测网络状态">
+                <i class="fa fa-chevron-left"></i> iOS Alamofire实时检测网络状态
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/2019-4-16 MySQL/" rel="prev" title="MySQL的基本使用">
+                MySQL的基本使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-</section>
-
   
+  
+  </article>
 
-            <footer class="footer">
-    <span class="footer__copyright">
-        &copy; 2019 Liu Chao Zheng - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-       
-    </span>
-    <span class="footer__copyright">
-             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
-         </span>
-       
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-    
-</footer>
+  </div>
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
+  </div>
 
-     
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
 
-	ga('create', 'UA-78918255-1', 'auto');
-	ga('send', 'pageview');
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Liu Chao Zheng">
+          <p class="site-author-name" itemprop="name">Liu Chao Zheng</p>
+           
+              <p class="site-description motion-element" itemprop="description">少一点抱怨，多一点努力</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lczalh" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-UITableView"><span class="nav-number">1.</span> <span class="nav-text">1. UITableView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-UICollectionView"><span class="nav-number">2.</span> <span class="nav-text">2. UICollectionView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ModelType"><span class="nav-number">3.</span> <span class="nav-text">3. ModelType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用动画数据源，自定义模型需遵守IdentifiableType协议"><span class="nav-number">4.</span> <span class="nav-text">4. 使用动画数据源，自定义模型需遵守IdentifiableType协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Demo"><span class="nav-number">5.</span> <span class="nav-text">5. Demo</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liu Chao Zheng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-    
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 
 
 
-    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-    
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
