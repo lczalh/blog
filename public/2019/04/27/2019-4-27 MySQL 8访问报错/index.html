@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="MySQL,">
 
 
 
@@ -96,21 +96,18 @@
 
 
 
-<meta name="description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo文档 1. 博客效果图 2. 创建GitHub仓库  Respository name 中的lczalh.github.io 的lczalh 一定与前面的Owner 一致  3. 安装Node.jsNode.js下载验证是否安装: $ node -">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="原因是：安装MySQL 8过程中的Authentication Method这一配置过程，基于不同的加密方式。12345678// 登录MySQLmysql -u root -p// 更改加密方式 (666666为mMySQL密码)ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;666666&apos; PASSWORD EXPIRE NEVER;// 更改密码AL">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mac OS 搭建Hexo个人博客">
-<meta property="og:url" content="http://yoursite.com/2019/02/11/2019-2-12 hexo搭建/index.html">
+<meta property="og:title" content="MAC MyBatis访问MySQL 8 报错consider upgrading MySQL client">
+<meta property="og:url" content="http://yoursite.com/2019/04/27/2019-4-27 MySQL 8访问报错/index.html">
 <meta property="og:site_name" content="lczalh">
-<meta property="og:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo文档 1. 博客效果图 2. 创建GitHub仓库  Respository name 中的lczalh.github.io 的lczalh 一定与前面的Owner 一致  3. 安装Node.jsNode.js下载验证是否安装: $ node -">
+<meta property="og:description" content="原因是：安装MySQL 8过程中的Authentication Method这一配置过程，基于不同的加密方式。12345678// 登录MySQLmysql -u root -p// 更改加密方式 (666666为mMySQL密码)ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;666666&apos; PASSWORD EXPIRE NEVER;// 更改密码AL">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/lczalh/blog/blob/master/source/images/2019-2-11 hexo搭建/博客效果.png?raw=true">
-<meta property="og:image" content="https://github.com/lczalh/blog/blob/master/source/images/2019-2-11 hexo搭建/创建仓库.png?raw=true">
-<meta property="og:updated_time" content="2019-04-22T08:26:04.328Z">
+<meta property="og:updated_time" content="2019-04-28T04:36:39.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac OS 搭建Hexo个人博客">
-<meta name="twitter:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo文档 1. 博客效果图 2. 创建GitHub仓库  Respository name 中的lczalh.github.io 的lczalh 一定与前面的Owner 一致  3. 安装Node.jsNode.js下载验证是否安装: $ node -">
-<meta name="twitter:image" content="https://github.com/lczalh/blog/blob/master/source/images/2019-2-11 hexo搭建/博客效果.png?raw=true">
+<meta name="twitter:title" content="MAC MyBatis访问MySQL 8 报错consider upgrading MySQL client">
+<meta name="twitter:description" content="原因是：安装MySQL 8过程中的Authentication Method这一配置过程，基于不同的加密方式。12345678// 登录MySQLmysql -u root -p// 更改加密方式 (666666为mMySQL密码)ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;666666&apos; PASSWORD EXPIRE NEVER;// 更改密码AL">
 
 
 
@@ -139,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/11/2019-2-12 hexo搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/27/2019-4-27 MySQL 8访问报错/">
 
 
 
 
 
-  <title>mac OS 搭建Hexo个人博客 | lczalh</title>
+  <title>MAC MyBatis访问MySQL 8 报错consider upgrading MySQL client | lczalh</title>
   
 
 
@@ -258,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/11/2019-2-12 hexo搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/27/2019-4-27 MySQL 8访问报错/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Chao Zheng">
@@ -275,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mac OS 搭建Hexo个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">MAC MyBatis访问MySQL 8 报错consider upgrading MySQL client</h1>
         
 
         <div class="post-meta">
@@ -287,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-11T18:00:41+08:00">
-                2019-02-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T14:17:11+08:00">
+                2019-04-27
               </time>
             
 
@@ -330,23 +327,12 @@
       
 
       
-        <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<a href="https://hexo.io/zh-cn/docs/" title="Hexo文档" target="_blank" rel="noopener">Hexo文档</a></p>
-<h2 id="1-博客效果图"><a href="#1-博客效果图" class="headerlink" title="1. 博客效果图"></a>1. 博客效果图</h2><p><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-11 hexo搭建/博客效果.png?raw=true" alt="markdown" title="博客效果"></p>
-<h2 id="2-创建GitHub仓库"><a href="#2-创建GitHub仓库" class="headerlink" title="2. 创建GitHub仓库"></a>2. 创建GitHub仓库</h2><p><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-11 hexo搭建/创建仓库.png?raw=true" alt="markdown" title="创建仓库"></p>
-<p><strong> Respository name 中的lczalh.github.io 的lczalh 一定与前面的Owner 一致 </strong></p>
-<h2 id="3-安装Node-js"><a href="#3-安装Node-js" class="headerlink" title="3. 安装Node.js"></a>3. 安装Node.js</h2><p><a href="https://nodejs.org/en/" title="Node.js下载" target="_blank" rel="noopener">Node.js下载</a><br>验证是否安装: <code>$ node -v</code></p>
-<h2 id="4-安装Git"><a href="#4-安装Git" class="headerlink" title="4. 安装Git"></a>4. 安装Git</h2><p><code>$ brew install git</code><br>验证是否安装:  <code>$ git --version</code></p>
-<h2 id="5-安装Hexo"><a href="#5-安装Hexo" class="headerlink" title="5. 安装Hexo"></a>5. 安装Hexo</h2><p><code>$ sudo npm install hexo-cli -g</code></p>
-<h2 id="6-创建博客"><a href="#6-创建博客" class="headerlink" title="6. 创建博客"></a>6. 创建博客</h2><p><code>$ hexo init lczalh.github.io</code>                          <code>lczalh.github.io</code>为文件夹名称 可自定义<br>执行成功后，会创建出一个名为 <code>lczalh.github.io</code> 的文件夹</p>
-<p><strong> 基础配置: 打开文件位置 <code>lczalh.github.io/_config.yml</code> </strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: lczalh    <span class="comment">// 博客名称</span></span><br><span class="line"><span class="attribute">author</span>: Liu Chao Zheng  <span class="comment">// 你的名字</span></span><br><span class="line"><span class="attribute">language</span>: zh-Hans    <span class="comment">// 中文</span></span><br><span class="line"><span class="attribute">theme</span>: new-vno   <span class="comment">// 主题名称</span></span><br><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git    <span class="comment">// Git发布</span></span><br><span class="line">  <span class="attribute">repo</span>: <span class="attribute">https</span>:<span class="comment">//github.com/lczalh/lczalh.github.io.git    // 刚才创建的Github仓库</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="7-更改主题"><a href="#7-更改主题" class="headerlink" title="7. 更改主题"></a>7. 更改主题</h2><p>进入上一步创建的文件夹: <code>$ cd lczalh.github.io</code><br>安装主题: <code>$ git clone https://github.com/monniya/hexo-theme-new-vno.git themes/new-vno</code> </p>
-<p><a href="https://github.com/monniya/hexo-theme-new-vno" title="主题配置" target="_blank" rel="noopener">主题配置</a>                     <a href="https://hexo.io/themes/" title="更多主题" target="_blank" rel="noopener">更多主题</a></p>
-<h2 id="8-写博客"><a href="#8-写博客" class="headerlink" title="8. 写博客"></a>8. 写博客</h2><p>博客路径: <code>lczalh.github.io/source/_posts</code> 在这里创建你的第一篇博客 例如创建: <strong> 2019-2-12 hexo搭建.md </strong>  内容如下:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"mac OS 搭建Hexo个人博客"</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="bullet">-02</span><span class="bullet">-11</span> <span class="number">18</span><span class="string">:00:41</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">博客</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="string">Hexo</span> <span class="string">是一个快速、简洁且高效的博客框架。Hexo</span> <span class="string">使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可</span>	<span class="string">利用靓丽的主题生成静态网页。[Hexo文档](https://hexo.io/zh-cn/docs/</span> <span class="string">"Hexo文档"</span><span class="string">)</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="9-测试是否正常"><a href="#9-测试是否正常" class="headerlink" title="9. 测试是否正常"></a>9. 测试是否正常</h2><p>启动测试服务: <code>$ hexo s</code>  在浏览器中输入<a href="在浏览器中输入https://localhost:4000 访问">https://localhost:4000</a> 访问</p>
-<h2 id="10-安装自动部署发布工具"><a href="#10-安装自动部署发布工具" class="headerlink" title="10. 安装自动部署发布工具"></a>10. 安装自动部署发布工具</h2><p><code>$ sudo npm install hexo-deployer-git --save</code></p>
-<h2 id="11-发布博客"><a href="#11-发布博客" class="headerlink" title="11. 发布博客"></a>11. 发布博客</h2><p>切换到root用户(有权限，跳过此行): <code>$ sudo -s</code><br>发布博客: <code>$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
-<p><strong> 每次写完博客，执行下这两个命令就可以了 </strong></p>
-<h2 id="12-错误"><a href="#12-错误" class="headerlink" title="12. 错误"></a>12. 错误</h2><p><strong> 1.WARN No layout: index.html </strong><br>解决方案: 安装/更新主题<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">cd</span> lczalh.github.io</span><br><span class="line">$ git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/monniya/hexo-theme-<span class="keyword">new</span>-vno.git themes/<span class="keyword">new</span>-vno</span><br></pre></td></tr></table></figure></p>
+        <p>原因是：安装MySQL 8过程中的Authentication Method这一配置过程，基于不同的加密方式。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 登录MySQL</span><br><span class="line">mysql -u root -p</span><br><span class="line">// 更改加密方式 (666666为mMySQL密码)</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'666666'</span> <span class="keyword">PASSWORD</span> <span class="keyword">EXPIRE</span> <span class="keyword">NEVER</span>;</span><br><span class="line">// 更改密码</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'666666'</span>;</span><br><span class="line">// 重启MySQL</span><br><span class="line">mysql.server restart</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-常见问题"><a href="#2-常见问题" class="headerlink" title="2.常见问题"></a>2.常见问题</h2><h3 id="2-1-MySQL-8-driver为：com-mysql-cj-jdbc-Driver"><a href="#2-1-MySQL-8-driver为：com-mysql-cj-jdbc-Driver" class="headerlink" title="2.1 MySQL 8 driver为：com.mysql.cj.jdbc.Driver"></a>2.1 MySQL 8 driver为：com.mysql.cj.jdbc.Driver</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Loading class `com.mysql.jdbc.Drive<span class="string">r'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'</span>. The driver is automatically registered via the SPI and</span><br><span class="line">manual loading of the driver class is generally unnecessary.</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-url中没有设置useSSL-false"><a href="#2-2-url中没有设置useSSL-false" class="headerlink" title="2.2 url中没有设置useSSL=false"></a>2.2 url中没有设置useSSL=false</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARN: Establishing SSL connection <span class="keyword">without</span> server's identity verification <span class="keyword">is</span> <span class="keyword">not</span> recommended. According <span class="keyword">to</span> MySQL <span class="number">5.5</span><span class="number">.45</span>+, <span class="number">5.6</span><span class="number">.26</span>+ <span class="keyword">and</span> <span class="number">5.7</span><span class="number">.6</span>+ requirements &lt;br&gt;SSL connection must be established <span class="keyword">by</span> default <span class="keyword">if</span> explicit option <span class="keyword">isn't</span> <span class="keyword">set</span>. For compliance <span class="keyword">with</span> existing applications <span class="keyword">not</span> using SSL <span class="keyword">the</span> verifyServerCertificate&lt;br&gt; <span class="keyword">property</span> <span class="keyword">is</span> <span class="keyword">set</span> <span class="keyword">to</span> '<span class="literal">false</span>'.You need either <span class="keyword">to</span> explicitly disable SSL <span class="keyword">by</span> setting useSSL=<span class="literal">false</span>, <span class="keyword">or</span> <span class="keyword">set</span> useSSL=<span class="literal">true</span> <span class="keyword">and</span> provide truststore <span class="keyword">for</span> server certificate&lt;br&gt; verification.</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-url中没有设置serverTimezone-UTC"><a href="#2-3-url中没有设置serverTimezone-UTC" class="headerlink" title="2.3 url中没有设置serverTimezone=UTC"></a>2.3 url中没有设置serverTimezone=UTC</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The server <span class="built_in">time</span> zone <span class="built_in">value</span> <span class="string">'???ú±ê×??±??'</span> is unrecognized <span class="keyword">or</span> represents more than <span class="literal">one</span> <span class="built_in">time</span> zone. You must configure either <span class="keyword">the</span> server <span class="keyword">or</span> JDBC driver (via <span class="keyword">the</span> </span><br><span class="line">serverTimezone configuration property) <span class="built_in">to</span> use <span class="keyword">a</span> more specifc <span class="built_in">time</span> zone <span class="built_in">value</span> <span class="keyword">if</span> you want <span class="built_in">to</span> utilize <span class="built_in">time</span> zone support.</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-url中参数没有用-拼接-amp-gt-amp"><a href="#2-4-url中参数没有用-拼接-amp-gt-amp" class="headerlink" title="2.4 url中参数没有用;拼接  &amp; -&gt; &amp;"></a>2.4 url中参数没有用;拼接  &amp; -&gt; &amp;</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The <span class="keyword">reference</span> <span class="keyword">to</span> entity “useSSL” must <span class="keyword">end</span> <span class="keyword">with</span> <span class="keyword">the</span> ‘;’ delimiter.</span><br></pre></td></tr></table></figure>
+<h2 id="3-MySQL-8-连接配置"><a href="#3-MySQL-8-连接配置" class="headerlink" title="3. MySQL 8 连接配置"></a>3. MySQL 8 连接配置</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"driver"</span> <span class="attribute">value</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span>/&gt; </span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"url"</span> <span class="attribute">value</span>=<span class="string">"jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC&amp;amp;characterEncoding=utf8&amp;amp;useUnicode=true&amp;amp;useSSL=false"</span>/&gt;</span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"username"</span> <span class="attribute">value</span>=<span class="string">"root"</span>/&gt;</span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"password"</span> <span class="attribute">value</span>=<span class="string">"123456"</span>/&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -393,7 +379,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           
         </div>
       
@@ -406,14 +392,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/04/18/2019-4-18 MAC 安装Tomcat/" rel="next" title="MAC 安装Tomcat">
+                <i class="fa fa-chevron-left"></i> MAC 安装Tomcat
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/28/2019-2-28 Fastlane自动化打包/" rel="prev" title="iOS Fastlane自动化打包ipa">
-                iOS Fastlane自动化打包ipa <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/29/2019-4-29 AFNetworking 网络请求重试机制/" rel="prev" title="AFNetworking 网络请求重试机制">
+                AFNetworking 网络请求重试机制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-博客效果图"><span class="nav-number">1.</span> <span class="nav-text">1. 博客效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建GitHub仓库"><span class="nav-number">2.</span> <span class="nav-text">2. 创建GitHub仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装Node-js"><span class="nav-number">3.</span> <span class="nav-text">3. 安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-安装Git"><span class="nav-number">4.</span> <span class="nav-text">4. 安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安装Hexo"><span class="nav-number">5.</span> <span class="nav-text">5. 安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-创建博客"><span class="nav-number">6.</span> <span class="nav-text">6. 创建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-更改主题"><span class="nav-number">7.</span> <span class="nav-text">7. 更改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-写博客"><span class="nav-number">8.</span> <span class="nav-text">8. 写博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-测试是否正常"><span class="nav-number">9.</span> <span class="nav-text">9. 测试是否正常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-安装自动部署发布工具"><span class="nav-number">10.</span> <span class="nav-text">10. 安装自动部署发布工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-发布博客"><span class="nav-number">11.</span> <span class="nav-text">11. 发布博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-错误"><span class="nav-number">12.</span> <span class="nav-text">12. 错误</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-常见问题"><span class="nav-number">1.</span> <span class="nav-text">2.常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-MySQL-8-driver为：com-mysql-cj-jdbc-Driver"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 MySQL 8 driver为：com.mysql.cj.jdbc.Driver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-url中没有设置useSSL-false"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 url中没有设置useSSL=false</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-url中没有设置serverTimezone-UTC"><span class="nav-number">1.3.</span> <span class="nav-text">2.3 url中没有设置serverTimezone=UTC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-url中参数没有用-拼接-amp-gt-amp"><span class="nav-number">1.4.</span> <span class="nav-text">2.4 url中参数没有用;拼接  &amp; -&gt; &amp;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-MySQL-8-连接配置"><span class="nav-number">2.</span> <span class="nav-text">3. MySQL 8 连接配置</span></a></li></ol></div>
             
 
           </div>

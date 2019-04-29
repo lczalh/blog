@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -118,7 +118,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -307,6 +307,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -326,11 +331,11 @@
 
       
         <p><img src="https://github.com/lczalh/blog/blob/master/source/images/MySQL/数据类型.png?raw=true" alt="markdown" title="数据类型"></p>
-<h2 id="1-DDL（数据定义语言）"><a href="#1-DDL（数据定义语言）" class="headerlink" title="1. DDL（数据定义语言）"></a>1. DDL（数据定义语言）</h2><h3 id="1-1-操作数据库"><a href="#1-1-操作数据库" class="headerlink" title="1.1 操作数据库"></a>1.1 操作数据库</h3><h4 id="1-1-1-增"><a href="#1-1-1-增" class="headerlink" title="1.1.1 增"></a>1.1.1 增</h4><p>创建数据库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">方式一：CREATE DATABASE 数据库名; -- 例：CREATE DATABASE mysql;</span><br><span class="line">方式二：CREATE DATABASE 数据库名 CHARSET 编码; -- 例：CREATE DATABASE mysql CHARSET utf8;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-DDL（数据定义语言）"><a href="#1-DDL（数据定义语言）" class="headerlink" title="1. DDL（数据定义语言）"></a>1. DDL（数据定义语言）</h2><h3 id="1-1-操作数据库"><a href="#1-1-操作数据库" class="headerlink" title="1.1 操作数据库"></a>1.1 操作数据库</h3><h4 id="1-1-1-增"><a href="#1-1-1-增" class="headerlink" title="1.1.1 增"></a>1.1.1 增</h4><p>创建数据库：<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">方式一：<span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> 数据库名; -- 例：<span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> mysql;</span><br><span class="line">方式二：<span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> 数据库名 CHARSET 编码; -- 例：<span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> mysql CHARSET utf8;</span><br></pre></td></tr></table></figure></p>
 <h4 id="1-1-2-删"><a href="#1-1-2-删" class="headerlink" title="1.1.2 删"></a>1.1.2 删</h4><p>删除数据库：<code>DROP DATABASE 数据库名; -- 例：DROP DATABASE mysql;</code></p>
 <h4 id="1-1-3-改"><a href="#1-1-3-改" class="headerlink" title="1.1.3 改"></a>1.1.3 改</h4><p>修改正在使用的数据库：<code>USE 数据库名; -- 例：USE mysql;</code></p>
 <h4 id="1-1-4-查"><a href="#1-1-4-查" class="headerlink" title="1.1.4 查"></a>1.1.4 查</h4><p>查询正在使用的数据库：<code>SELECT DATABASE();</code><br>查询mysql中的所有数据库：<code>SHOW DATABASES;</code><br>查询某一个数据库的详细信息：<code>SHOW CREATE DATABASE 数据库名; -- 例：SHOW CREATE DATABASE  mysql;</code></p>
-<h3 id="1-2-操作数据库表"><a href="#1-2-操作数据库表" class="headerlink" title="1.2 操作数据库表"></a>1.2 操作数据库表</h3><h4 id="1-2-1-增"><a href="#1-2-1-增" class="headerlink" title="1.2.1 增"></a>1.2.1 增</h4><p>创建表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 数据库名(</span><br><span class="line">    字段名 数据类型(长度) 约束,</span><br><span class="line">    字段名 数据类型(长度) 约束</span><br><span class="line">);</span><br><span class="line">例：</span><br><span class="line">CREATE TABLE student(</span><br><span class="line">    sid INT PRIMARY KEY, -- 主键约束</span><br><span class="line">    sname VARCHAR(30),</span><br><span class="line">    sage INT</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-操作数据库表"><a href="#1-2-操作数据库表" class="headerlink" title="1.2 操作数据库表"></a>1.2 操作数据库表</h3><h4 id="1-2-1-增"><a href="#1-2-1-增" class="headerlink" title="1.2.1 增"></a>1.2.1 增</h4><p>创建表：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 数据库名(</span><br><span class="line">    字段名 数据类型(长度) 约束,</span><br><span class="line">    字段名 数据类型(长度) 约束</span><br><span class="line">);</span><br><span class="line">例：</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    <span class="keyword">sid</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>, <span class="comment">-- 主键约束</span></span><br><span class="line">    sname <span class="built_in">VARCHAR</span>(<span class="number">30</span>),</span><br><span class="line">    sage <span class="built_in">INT</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <h4 id="1-2-2-删"><a href="#1-2-2-删" class="headerlink" title="1.2.2 删"></a>1.2.2 删</h4><p>删除表：<code>DROP TABLE 表名; -- 例：DROP TABLE student;</code></p>
 <h4 id="1-2-3-查"><a href="#1-2-3-查" class="headerlink" title="1.2.3 查"></a>1.2.3 查</h4><p>查看一个表的详细信息：<code>DESC 表名; -- 例：DESC student;</code><br>查看所有表：<code>SHOW TABLES;</code></p>
 <h4 id="1-2-4-改"><a href="#1-2-4-改" class="headerlink" title="1.2.4 改"></a>1.2.4 改</h4><p>修改表名：<code>RENAME TABLE 表名 TO 新表名; -- 例：RENAME TABLE student TO studentTwo;</code></p>
@@ -352,6 +357,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Liu Chao Zheng WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Liu Chao Zheng Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -460,7 +494,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,12 +600,32 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Gemini
   </a>
 </div>
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>总访客
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
         
       </div>
@@ -645,6 +699,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
