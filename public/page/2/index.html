@@ -255,6 +255,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/2019-2-28 Fastlane自动化打包/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Chao Zheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lczalh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/28/2019-2-28 Fastlane自动化打包/" itemprop="url">iOS Fastlane自动化打包ipa</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T18:00:41+08:00">
+                2019-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Fastlane是一套使用Ruby写的自动化工具集，旨在简化Android和iOS的部署过程，自动化你的工作流。它可以简化一些乏味、单调、重复的工作，像截图、代码签名以及发布App。<a href="https://docs.fastlane.tools/" title="Fastlane文档" target="_blank" rel="noopener">Fastlane文档</a></p>
+<h2 id="1-安装Xcode命令行工具"><a href="#1-安装Xcode命令行工具" class="headerlink" title="1. 安装Xcode命令行工具"></a>1. 安装Xcode命令行工具</h2><p>安装命令: <code>$ xcode-select --install</code><br>提示: <code>xcode-select: error: command line tools are already installed, use &quot;Software Update&quot; to install updates</code>  表示已经安装</p>
+<h2 id="2-安装Fastlane"><a href="#2-安装Fastlane" class="headerlink" title="2. 安装Fastlane"></a>2. 安装Fastlane</h2><p>安装命令: <code>$ sudo gem install fastlane -NV</code> 或 <code>brew cask install fastlane</code><br>检查是否安装成功 <code>fastlane --version</code></p>
+<h2 id="3-初始化Fastlane"><a href="#3-初始化Fastlane" class="headerlink" title="3. 初始化Fastlane"></a>3. 初始化Fastlane</h2><p>cd到项目路径：<code>$ cd /Users/tanitsubukousha/Desktop/GLGL</code><br>初始化Fastlane：<code>$ fastlane init</code><br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/fastlane初始化.png?raw=true" alt="markdown" title="Fastlane初始化"><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 📸  Automate screenshots (自动化截图)</span><br><span class="line">2. 👩‍✈️  Automate beta distribution <span class="keyword">to</span> TestFlight (自动testfilght型配置)</span><br><span class="line">3. 🚀  Automate App Store distribution (自动发布型配置)</span><br><span class="line">4. 🛠 <span class="built_in"> Manual </span>setup - manually setup your project <span class="keyword">to</span> automate your (需要手动配置内容)</span><br></pre></td></tr></table></figure></p>
+<p>我这里选择 4  等待一下会让你按回车 (共三次)  即安装成功！<br>在项目中会生成 fastlane文件夹、Gemfile、Gemfile.lock<br>fastlane文件夹：Appfile (存储有关开发者账号相关信息)、Fastfile (核心文件，主要用于 命令行调用和处理具体的流程)</p>
+<h2 id="4-文件配置"><a href="#4-文件配置" class="headerlink" title="4. 文件配置"></a>4. 文件配置</h2><h3 id="4-1-打开Appfile文件-修改以下配置"><a href="#4-1-打开Appfile文件-修改以下配置" class="headerlink" title="4.1 打开Appfile文件 修改以下配置"></a>4.1 打开Appfile文件 修改以下配置</h3><p><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/Appfile.png?raw=true" alt="markdown" title="Appfile"></p>
+<h3 id="4-2-打开Fastfile文件-修改以下配置"><a href="#4-2-打开Fastfile文件-修改以下配置" class="headerlink" title="4.2 打开Fastfile文件 修改以下配置"></a>4.2 打开Fastfile文件 修改以下配置</h3><p><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/Fastfile.png?raw=true" alt="markdown" title="Fastfile"></p>
+<h3 id="4-3-关于export-method方法"><a href="#4-3-关于export-method方法" class="headerlink" title="4.3 关于export_method方法"></a>4.3 关于export_method方法</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app-store,   <span class="meta">#AppStore正式生产环境包</span></span><br><span class="line">ad-hoc,  <span class="meta">#生产测试包</span></span><br><span class="line">enterprise,  <span class="meta">#企业包</span></span><br><span class="line">development  <span class="meta">#开发测试包</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-证书管理插件"><a href="#5-证书管理插件" class="headerlink" title="5. 证书管理插件"></a>5. 证书管理插件</h2><p>match是fastlane的一个功能组件, 能自动从苹果官方上下载证书和pp文件同步到我们的git仓库中<br>cd到项目路径：<code>$ cd /Users/tanitsubukousha/Desktop/GLGL</code><br>安装命令: <code>$ fastlane match init</code><br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/match.png?raw=true" alt="markdown" title="match"></p>
+<h3 id="5-1-先删除旧证书和pp文件"><a href="#5-1-先删除旧证书和pp文件" class="headerlink" title="5.1 先删除旧证书和pp文件"></a>5.1 先删除旧证书和pp文件</h3><p>分别执行以下命令<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ fastlane <span class="keyword">match</span> nuke development</span><br><span class="line">$ fastlane <span class="keyword">match</span> nuke distribution</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-2-生成证书和pp文件"><a href="#5-2-生成证书和pp文件" class="headerlink" title="5.2 生成证书和pp文件"></a>5.2 生成证书和pp文件</h3><p>cd到项目路径：<code>$ cd /Users/tanitsubukousha/Desktop/GLGL</code><br>分别执行以下命令（首次执行时,会要求输入Git仓库密码,用来对证书进行加密,后续其他机器获取证书时使用该密码进行解密）<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ fastlane <span class="keyword">match</span> development</span><br><span class="line">$ fastlane <span class="keyword">match</span> adhoc</span><br><span class="line">$ fastlane <span class="keyword">match</span> appstore</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-打包ipa"><a href="#6-打包ipa" class="headerlink" title="6. 打包ipa"></a>6. 打包ipa</h2><p>打包命: <code>$ fastlane test</code>  test是Fastfile文件中的lane名称<br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/ipa.png?raw=true" alt="markdown" title="ipa"></p>
+<h2 id="7-问题"><a href="#7-问题" class="headerlink" title="7. 问题"></a>7. 问题</h2><h3 id="7-1-Automatic-signing-is-disabled-and-unable-to-generate-a-profile-To-enable-automatic-signing-pass-allowProvisioningUpdates-to-xcodebuild"><a href="#7-1-Automatic-signing-is-disabled-and-unable-to-generate-a-profile-To-enable-automatic-signing-pass-allowProvisioningUpdates-to-xcodebuild" class="headerlink" title="7.1 Automatic signing is disabled and unable to generate a profile. To enable automatic signing, pass -allowProvisioningUpdates to xcodebuild."></a>7.1 <code>Automatic signing is disabled and unable to generate a profile. To enable automatic signing, pass -allowProvisioningUpdates to xcodebuild.</code></h3><p>Xcode 9 之后禁止其直接访问钥匙串, 导致持续集成时执行 xcode build 会出现找不到证书或证书配置文件。修改 fastlane 配置文件来解决<br><img src="https://github.com/lczalh/blog/blob/master/source/images/2019-2-28 Fastlane自动化打包/7.1问题.png?raw=true" alt="markdown" title="7.1问题"><br><code>export_xcargs: &quot;-allowProvisioningUpdates&quot;</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/11/2019-2-12 hexo搭建/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -426,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

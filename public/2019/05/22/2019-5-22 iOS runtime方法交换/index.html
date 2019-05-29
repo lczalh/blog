@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装 1. UITableView数据源类型：RxTableViewSectionedReloadDataSource，RxTableViewSectionedAnimatedDataSource 2. UICollectionView数据源类型：RxTabl">
+<meta name="description" content="我们可以将Method Swizzling功能封装为类方法，作为NSObject的类别，这样我们后续调用也会方便些。123456789101112131415161718#import &amp;lt;Foundation/Foundation.h&amp;gt;NS_ASSUME_NONNULL_BEGIN@interface NSObject (Swizzling)/** 方法交换 @param origin">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS RxDataSources">
-<meta property="og:url" content="http://yoursite.com/2019/04/02/2019-4-02 iOS开发 RxDataSources/index.html">
+<meta property="og:title" content="iOS开发 runtime方法交换">
+<meta property="og:url" content="http://yoursite.com/2019/05/22/2019-5-22 iOS runtime方法交换/index.html">
 <meta property="og:site_name" content="lczalh">
-<meta property="og:description" content="RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装 1. UITableView数据源类型：RxTableViewSectionedReloadDataSource，RxTableViewSectionedAnimatedDataSource 2. UICollectionView数据源类型：RxTabl">
+<meta property="og:description" content="我们可以将Method Swizzling功能封装为类方法，作为NSObject的类别，这样我们后续调用也会方便些。123456789101112131415161718#import &amp;lt;Foundation/Foundation.h&amp;gt;NS_ASSUME_NONNULL_BEGIN@interface NSObject (Swizzling)/** 方法交换 @param origin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T08:26:04.329Z">
+<meta property="og:updated_time" content="2019-05-22T10:07:16.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS RxDataSources">
-<meta name="twitter:description" content="RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装 1. UITableView数据源类型：RxTableViewSectionedReloadDataSource，RxTableViewSectionedAnimatedDataSource 2. UICollectionView数据源类型：RxTabl">
+<meta name="twitter:title" content="iOS开发 runtime方法交换">
+<meta name="twitter:description" content="我们可以将Method Swizzling功能封装为类方法，作为NSObject的类别，这样我们后续调用也会方便些。123456789101112131415161718#import &amp;lt;Foundation/Foundation.h&amp;gt;NS_ASSUME_NONNULL_BEGIN@interface NSObject (Swizzling)/** 方法交换 @param origin">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/02/2019-4-02 iOS开发 RxDataSources/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/22/2019-5-22 iOS runtime方法交换/">
 
 
 
 
 
-  <title>iOS RxDataSources | lczalh</title>
+  <title>iOS开发 runtime方法交换 | lczalh</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/2019-4-02 iOS开发 RxDataSources/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/2019-5-22 iOS runtime方法交换/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Chao Zheng">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS RxDataSources</h1>
+          <h1 class="post-title" itemprop="name headline">iOS开发 runtime方法交换</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T10:48:47+08:00">
-                2019-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-22T15:44:45+08:00">
+                2019-05-22
               </time>
             
 
@@ -327,12 +327,10 @@
       
 
       
-        <p>RxDataSource 的本质就是使用 RxSwift 对 UITableView 和 UICollectionView 的数据源做了一层包装</p>
-<h2 id="1-UITableView"><a href="#1-UITableView" class="headerlink" title="1. UITableView"></a>1. UITableView</h2><p>数据源类型：<code>RxTableViewSectionedReloadDataSource</code>，<code>RxTableViewSectionedAnimatedDataSource</code></p>
-<h2 id="2-UICollectionView"><a href="#2-UICollectionView" class="headerlink" title="2. UICollectionView"></a>2. UICollectionView</h2><p>数据源类型：<code>RxTableViewSectionedReloadDataSource</code>，<code>RxCollectionViewSectionedAnimatedDataSource</code></p>
-<h2 id="3-ModelType"><a href="#3-ModelType" class="headerlink" title="3. ModelType"></a>3. ModelType</h2><p>模型类型：<code>SectionModel</code>，<code>AnimatableSectionModel</code></p>
-<h2 id="4-使用动画数据源，自定义模型需遵守IdentifiableType协议"><a href="#4-使用动画数据源，自定义模型需遵守IdentifiableType协议" class="headerlink" title="4. 使用动画数据源，自定义模型需遵守IdentifiableType协议"></a>4. 使用动画数据源，自定义模型需遵守<code>IdentifiableType</code>协议</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsListModel</span>: <span class="title">Object</span>,<span class="title">Mappable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> publishTime: <span class="type">String?</span> <span class="comment">// 发布时间</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> category: <span class="type">String?</span> <span class="comment">// 类型</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> source: <span class="type">String?</span> <span class="comment">// 来源</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> newsId: <span class="type">String?</span> <span class="comment">// 新闻ID</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> title: <span class="type">String?</span> <span class="comment">// 标题</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> newsImg: <span class="type">String?</span> <span class="comment">//新闻小图片url</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">convenience</span> <span class="keyword">init</span>?(<span class="built_in">map</span>: <span class="type">Map</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mapping</span><span class="params">(<span class="built_in">map</span>: Map)</span></span> &#123;</span><br><span class="line">        publishTime   &lt;- <span class="built_in">map</span>[<span class="string">"publishTime"</span>]</span><br><span class="line">        category   &lt;- <span class="built_in">map</span>[<span class="string">"category"</span>]</span><br><span class="line">        source   &lt;- <span class="built_in">map</span>[<span class="string">"source"</span>]</span><br><span class="line">        newsId   &lt;- <span class="built_in">map</span>[<span class="string">"newsId"</span>]</span><br><span class="line">        title   &lt;- <span class="built_in">map</span>[<span class="string">"title"</span>]</span><br><span class="line">        newsImg   &lt;- <span class="built_in">map</span>[<span class="string">"newsImg"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">NewsListModel</span>: <span class="title">IdentifiableType</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> identity: <span class="type">NewsListModel</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">Identity</span> = <span class="type">NewsListModel</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-Demo"><a href="#5-Demo" class="headerlink" title="5. Demo"></a>5. <a href="https://github.com/lczalh/Diary" target="_blank" rel="noopener">Demo</a></h2>
+        <p>我们可以将Method Swizzling功能封装为类方法，作为NSObject的类别，这样我们后续调用也会方便些。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">Swizzling</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 方法交换</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> @param originalSelector 源方法</span></span><br><span class="line"><span class="comment"> @param swizzledSelector 新方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">+ (<span class="keyword">void</span>)methodSwizzlingWithOriginalSelector:(SEL)originalSelector</span><br><span class="line">                        andSwizzledSelector:(SEL)swizzledSelector;</span><br><span class="line">                        </span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> <span class="string">"NSObject+Swizzling.h"</span></span><br><span class="line">#<span class="keyword">import</span>&lt;objc/runtime.h&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">@implementation</span> NSObject (Swizzling)</span><br><span class="line"></span><br><span class="line">+ (void)methodSwizzlingWithOriginalSelector:(SEL)originalSelector</span><br><span class="line">                        andSwizzledSelector:(SEL)swizzledSelector &#123;</span><br><span class="line">    Class <span class="class"><span class="keyword">class</span> = [<span class="title">self</span> <span class="title">class</span>];</span></span><br><span class="line">    <span class="comment">//原有方法</span></span><br><span class="line">    Method originalMethod = class_getInstanceMethod(<span class="class"><span class="keyword">class</span>, <span class="type">originalSelector);</span></span></span><br><span class="line">    <span class="comment">//替换原有方法的新方法</span></span><br><span class="line">    Method swizzledMethod = class_getInstanceMethod(<span class="class"><span class="keyword">class</span>, <span class="type">swizzledSelector);</span></span></span><br><span class="line">    <span class="comment">//先尝试給源SEL添加IMP，这里是为了避免源SEL没有实现IMP的情况</span></span><br><span class="line">    BOOL didAddMethod = class_addMethod(<span class="class"><span class="keyword">class</span>,<span class="type">originalSelector</span>,<span class="type"></span></span></span><br><span class="line">    method_getImplementation(swizzledMethod),</span><br><span class="line">    method_getTypeEncoding(swizzledMethod));</span><br><span class="line">    <span class="keyword">if</span> (didAddMethod) &#123;<span class="comment">//添加成功：说明源SEL没有实现IMP，将源SEL的IMP替换到交换SEL的IMP</span></span><br><span class="line">        class_replaceMethod(<span class="class"><span class="keyword">class</span>,<span class="type">swizzledSelector</span>,<span class="type"></span></span></span><br><span class="line">        method_getImplementation(originalMethod),</span><br><span class="line">        method_getTypeEncoding(originalMethod));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;<span class="comment">//添加失败：说明源SEL已经有IMP，直接将两个SEL的IMP交换即可</span></span><br><span class="line">        method_exchangeImplementations(originalMethod, swizzledMethod);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@end</span></span><br></pre></td></tr></table></figure>
+<p>例举<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"NSObject+Swizzling.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)load &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        [<span class="keyword">self</span> methodSwizzlingWithOriginalSelector:<span class="keyword">@selector</span>(viewWillAppear:) andSwizzledSelector:<span class="keyword">@selector</span>(lczViewWillAppear:)];</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"视图即将显示"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)lczViewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"视图即将显示前打印"</span>);</span><br><span class="line">    [<span class="keyword">self</span> lczViewWillAppear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -391,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/28/2019-3-28 iOS开发 实时检测网络状态/" rel="next" title="iOS Alamofire实时检测网络状态">
-                <i class="fa fa-chevron-left"></i> iOS Alamofire实时检测网络状态
+              <a href="/2019/04/29/2019-4-29 AFNetworking 网络请求重试机制/" rel="next" title="AFNetworking 网络请求重试机制">
+                <i class="fa fa-chevron-left"></i> AFNetworking 网络请求重试机制
               </a>
             
           </div>
@@ -400,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/16/2019-4-16 MySQL/" rel="prev" title="MySQL的基本使用">
-                MySQL的基本使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -455,17 +449,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Liu Chao Zheng">
           <p class="site-author-name" itemprop="name">Liu Chao Zheng</p>
@@ -536,22 +521,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-UITableView"><span class="nav-number">1.</span> <span class="nav-text">1. UITableView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-UICollectionView"><span class="nav-number">2.</span> <span class="nav-text">2. UICollectionView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ModelType"><span class="nav-number">3.</span> <span class="nav-text">3. ModelType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用动画数据源，自定义模型需遵守IdentifiableType协议"><span class="nav-number">4.</span> <span class="nav-text">4. 使用动画数据源，自定义模型需遵守IdentifiableType协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Demo"><span class="nav-number">5.</span> <span class="nav-text">5. Demo</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
