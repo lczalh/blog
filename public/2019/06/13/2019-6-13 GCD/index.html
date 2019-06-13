@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Git,">
+  <meta name="keywords" content="iOS,">
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE3. 重启Finder：$ killall Finder4. 当你的git仓库中还存在另一个git仓库B，提交时报错chang">
-<meta name="keywords" content="Git">
+<meta name="description" content="1. GCD信号量123456789101112131415161718192021222324252627282930313233343536373839404142434445464748//创建信号量dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);dispatch_queue_t queue = dispatch_g">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MAC 显示或隐藏.git目录">
-<meta property="og:url" content="http://yoursite.com/2019/04/17/2019-4-17 MAC 显示或隐藏.git目录/index.html">
+<meta property="og:title" content="iOS开发 GCD">
+<meta property="og:url" content="http://yoursite.com/2019/06/13/2019-6-13 GCD/index.html">
 <meta property="og:site_name" content="lczalh">
-<meta property="og:description" content="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE3. 重启Finder：$ killall Finder4. 当你的git仓库中还存在另一个git仓库B，提交时报错chang">
+<meta property="og:description" content="1. GCD信号量123456789101112131415161718192021222324252627282930313233343536373839404142434445464748//创建信号量dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);dispatch_queue_t queue = dispatch_g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T08:26:04.329Z">
+<meta property="og:updated_time" content="2019-06-13T09:00:34.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MAC 显示或隐藏.git目录">
-<meta name="twitter:description" content="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE3. 重启Finder：$ killall Finder4. 当你的git仓库中还存在另一个git仓库B，提交时报错chang">
+<meta name="twitter:title" content="iOS开发 GCD">
+<meta name="twitter:description" content="1. GCD信号量123456789101112131415161718192021222324252627282930313233343536373839404142434445464748//创建信号量dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);dispatch_queue_t queue = dispatch_g">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/17/2019-4-17 MAC 显示或隐藏.git目录/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/13/2019-6-13 GCD/">
 
 
 
 
 
-  <title>MAC 显示或隐藏.git目录 | lczalh</title>
+  <title>iOS开发 GCD | lczalh</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/2019-4-17 MAC 显示或隐藏.git目录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/2019-6-13 GCD/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Chao Zheng">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MAC 显示或隐藏.git目录</h1>
+          <h1 class="post-title" itemprop="name headline">iOS开发 GCD</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-17T11:08:22+08:00">
-                2019-04-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-13T16:45:24+08:00">
+                2019-06-13
               </time>
             
 
@@ -327,7 +327,9 @@
       
 
       
-        <h2 id="1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE"><a href="#1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE" class="headerlink" title="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE"></a>1. 显示.git目录：<code>$ defaults write com.apple.finder AppleShowAllFiles TRUE</code></h2><h2 id="2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE"><a href="#2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE" class="headerlink" title="2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE"></a>2. 隐藏.git目录：<code>$ defaults write com.apple.finder AppleShowAllFiles FALSE</code></h2><h2 id="3-重启Finder：-killall-Finder"><a href="#3-重启Finder：-killall-Finder" class="headerlink" title="3. 重启Finder：$ killall Finder"></a>3. 重启Finder：<code>$ killall Finder</code></h2><h2 id="4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可"><a href="#4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可" class="headerlink" title="4. 当你的git仓库中还存在另一个git仓库B，提交时报错changes not staged for commit，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可"></a>4. 当你的git仓库中还存在另一个git仓库B，提交时报错<code>changes not staged for commit</code>，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可</h2>
+        <h2 id="1-GCD信号量"><a href="#1-GCD信号量" class="headerlink" title="1. GCD信号量"></a>1. GCD信号量</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建信号量</span></span><br><span class="line">dispatch_semaphore_t semaphore = dispatch_semaphore_create(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">    <span class="comment">// 等待信号量</span></span><br><span class="line">    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</span><br><span class="line">    <span class="comment">// 发起网络请求</span></span><br><span class="line">    [BadgeCountModel HomeBadgeCountBlock:^(<span class="built_in">NSDictionary</span> *data) &#123;</span><br><span class="line">        <span class="built_in">NSNumber</span> *num = data[<span class="string">@"num"</span>];</span><br><span class="line">        <span class="keyword">if</span> (num.integerValue &gt; <span class="number">0</span> ) &#123;</span><br><span class="line">            weakSelf.rightBt.isShowBadge = <span class="literal">YES</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            weakSelf.rightBt.isShowBadge = <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 发送信号量</span></span><br><span class="line">        dispatch_semaphore_signal(semaphore);</span><br><span class="line">    &#125; andError:^(<span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">        dispatch_semaphore_signal(semaphore);</span><br><span class="line">    &#125;]; </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</span><br><span class="line">    <span class="comment">// 发起网络请求</span></span><br><span class="line">    [BadgeCountModel HomeDetailBadgeCountBlock:^(<span class="built_in">NSArray</span> *data) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!weakSelf.badgeDict) &#123;</span><br><span class="line">            weakSelf.badgeDict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">        &#125;</span><br><span class="line">        [weakSelf.badgeDict removeAllObjects];</span><br><span class="line">        <span class="built_in">NSMutableArray</span> *badgeArray = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">NSDictionary</span> *dict <span class="keyword">in</span> data) &#123;</span><br><span class="line">            BadgeCountModel *model = [[BadgeCountModel alloc] init];</span><br><span class="line">            model.code = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,dict[<span class="string">@"key"</span>]];</span><br><span class="line">            model.value = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,dict[<span class="string">@"value"</span>]];</span><br><span class="line">            [badgeArray addObject:model];</span><br><span class="line">            <span class="built_in">NSIndexPath</span> *path = [<span class="keyword">self</span> getIndexPathWithCode:model.code];</span><br><span class="line">            <span class="keyword">if</span> (!path) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            [weakSelf.badgeDict setObject:model.value forKey:path];</span><br><span class="line">        &#125;</span><br><span class="line">        [weakSelf.collectionView reloadData];</span><br><span class="line">        [[GLMenuManager shareInstance] setRedPointArray:badgeArray];</span><br><span class="line">        dispatch_semaphore_signal(semaphore);</span><br><span class="line">    &#125; andError:^(<span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">        dispatch_semaphore_signal(semaphore);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="2-GCD单例"><a href="#2-GCD单例" class="headerlink" title="2. GCD单例"></a>2. GCD单例</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype)shared </span>&#123;</span><br><span class="line">    static <span class="keyword">Share </span>*<span class="keyword">shared </span>= nil<span class="comment">;</span></span><br><span class="line">    static <span class="keyword">dispatch_once_t </span>onceToken<span class="comment">;</span></span><br><span class="line">    <span class="keyword">dispatch_once(&amp;onceToken, </span>^&#123;</span><br><span class="line">        <span class="keyword">shared </span>= [[<span class="keyword">Share </span>alloc]init]<span class="comment">;</span></span><br><span class="line">    &#125;)<span class="comment">;</span></span><br><span class="line">    return <span class="keyword">shared;</span></span><br><span class="line"><span class="keyword">&#125;</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -373,7 +375,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
         </div>
       
@@ -386,8 +388,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/16/2019-4-16 MySQL/" rel="next" title="MySQL的基本使用">
-                <i class="fa fa-chevron-left"></i> MySQL的基本使用
+              <a href="/2019/06/04/2019-6-04 MyBatis逆向工程配置/" rel="next" title="java开发 MyBatis逆向工程配置">
+                <i class="fa fa-chevron-left"></i> java开发 MyBatis逆向工程配置
               </a>
             
           </div>
@@ -396,8 +398,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/18/2019-4-18 MAC 安装Tomcat/" rel="prev" title="MAC 安装Tomcat">
-                MAC 安装Tomcat <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/13/2019-6-13 子视图中获取父控制器、父视图/" rel="prev" title="iOS开发 子视图中获取父控制器、父视图">
+                iOS开发 子视图中获取父控制器、父视图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE"><span class="nav-number">1.</span> <span class="nav-text">1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE"><span class="nav-number">2.</span> <span class="nav-text">2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重启Finder：-killall-Finder"><span class="nav-number">3.</span> <span class="nav-text">3. 重启Finder：$ killall Finder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可"><span class="nav-number">4.</span> <span class="nav-text">4. 当你的git仓库中还存在另一个git仓库B，提交时报错changes not staged for commit，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-GCD信号量"><span class="nav-number">1.</span> <span class="nav-text">1. GCD信号量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GCD单例"><span class="nav-number">2.</span> <span class="nav-text">2. GCD单例</span></a></li></ol></div>
             
 
           </div>

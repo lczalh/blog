@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Git,">
+  <meta name="keywords" content="iOS,">
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE3. 重启Finder：$ killall Finder4. 当你的git仓库中还存在另一个git仓库B，提交时报错chang">
-<meta name="keywords" content="Git">
+<meta name="description" content="1. SnapKit优先完全显示内容、抵抗压缩12self.title.setContentHuggingPriority(.required, for: .horizontal)self.title.setContentCompressionResistancePriority(.required, for: .horizontal) 2. Masonry优先完全显示内容、抵抗压缩12[self">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MAC 显示或隐藏.git目录">
-<meta property="og:url" content="http://yoursite.com/2019/04/17/2019-4-17 MAC 显示或隐藏.git目录/index.html">
+<meta property="og:title" content="iOS开发 SnapKit、Masonry">
+<meta property="og:url" content="http://yoursite.com/2019/06/13/2019-6-13 Masonry、SnapKit/index.html">
 <meta property="og:site_name" content="lczalh">
-<meta property="og:description" content="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE3. 重启Finder：$ killall Finder4. 当你的git仓库中还存在另一个git仓库B，提交时报错chang">
+<meta property="og:description" content="1. SnapKit优先完全显示内容、抵抗压缩12self.title.setContentHuggingPriority(.required, for: .horizontal)self.title.setContentCompressionResistancePriority(.required, for: .horizontal) 2. Masonry优先完全显示内容、抵抗压缩12[self">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T08:26:04.329Z">
+<meta property="og:updated_time" content="2019-06-13T08:58:56.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MAC 显示或隐藏.git目录">
-<meta name="twitter:description" content="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE3. 重启Finder：$ killall Finder4. 当你的git仓库中还存在另一个git仓库B，提交时报错chang">
+<meta name="twitter:title" content="iOS开发 SnapKit、Masonry">
+<meta name="twitter:description" content="1. SnapKit优先完全显示内容、抵抗压缩12self.title.setContentHuggingPriority(.required, for: .horizontal)self.title.setContentCompressionResistancePriority(.required, for: .horizontal) 2. Masonry优先完全显示内容、抵抗压缩12[self">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/17/2019-4-17 MAC 显示或隐藏.git目录/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/13/2019-6-13 Masonry、SnapKit/">
 
 
 
 
 
-  <title>MAC 显示或隐藏.git目录 | lczalh</title>
+  <title>iOS开发 SnapKit、Masonry | lczalh</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/2019-4-17 MAC 显示或隐藏.git目录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/2019-6-13 Masonry、SnapKit/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Chao Zheng">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MAC 显示或隐藏.git目录</h1>
+          <h1 class="post-title" itemprop="name headline">iOS开发 SnapKit、Masonry</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-17T11:08:22+08:00">
-                2019-04-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-13T18:20:24+08:00">
+                2019-06-13
               </time>
             
 
@@ -327,7 +327,10 @@
       
 
       
-        <h2 id="1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE"><a href="#1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE" class="headerlink" title="1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE"></a>1. 显示.git目录：<code>$ defaults write com.apple.finder AppleShowAllFiles TRUE</code></h2><h2 id="2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE"><a href="#2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE" class="headerlink" title="2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE"></a>2. 隐藏.git目录：<code>$ defaults write com.apple.finder AppleShowAllFiles FALSE</code></h2><h2 id="3-重启Finder：-killall-Finder"><a href="#3-重启Finder：-killall-Finder" class="headerlink" title="3. 重启Finder：$ killall Finder"></a>3. 重启Finder：<code>$ killall Finder</code></h2><h2 id="4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可"><a href="#4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可" class="headerlink" title="4. 当你的git仓库中还存在另一个git仓库B，提交时报错changes not staged for commit，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可"></a>4. 当你的git仓库中还存在另一个git仓库B，提交时报错<code>changes not staged for commit</code>，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可</h2>
+        <h2 id="1-SnapKit"><a href="#1-SnapKit" class="headerlink" title="1. SnapKit"></a>1. SnapKit</h2><p>优先完全显示内容、抵抗压缩<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self<span class="selector-class">.title</span><span class="selector-class">.setContentHuggingPriority</span>(<span class="selector-class">.required</span>, <span class="keyword">for</span>: .horizontal)</span><br><span class="line">self<span class="selector-class">.title</span><span class="selector-class">.setContentCompressionResistancePriority</span>(<span class="selector-class">.required</span>, <span class="keyword">for</span>: .horizontal)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Masonry"><a href="#2-Masonry" class="headerlink" title="2. Masonry"></a>2. Masonry</h2><p>优先完全显示内容、抵抗压缩<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.titleLabel setContentHuggingPriority:<span class="built_in">UILayoutPriorityRequired</span> forAxis:<span class="built_in">UILayoutConstraintAxisHorizontal</span>];</span><br><span class="line">[<span class="keyword">self</span>.titleLabel setContentCompressionResistancePriority:<span class="built_in">UILayoutPriorityRequired</span> forAxis:<span class="built_in">UILayoutConstraintAxisHorizontal</span>];</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-获取frame"><a href="#3-获取frame" class="headerlink" title="3. 获取frame"></a>3. 获取frame</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self<span class="selector-class">.titleLabel</span><span class="selector-class">.layoutIfNeeded</span>()</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(self.titleLabel.frame)</span></span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -373,7 +376,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
         </div>
       
@@ -386,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/16/2019-4-16 MySQL/" rel="next" title="MySQL的基本使用">
-                <i class="fa fa-chevron-left"></i> MySQL的基本使用
+              <a href="/2019/06/13/2019-6-13 子视图中获取父控制器、父视图/" rel="next" title="iOS开发 子视图中获取父控制器、父视图">
+                <i class="fa fa-chevron-left"></i> iOS开发 子视图中获取父控制器、父视图
               </a>
             
           </div>
@@ -396,8 +399,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/18/2019-4-18 MAC 安装Tomcat/" rel="prev" title="MAC 安装Tomcat">
-                MAC 安装Tomcat <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/13/2019-6-13 UITableView/" rel="prev" title="iOS开发 UITableView">
+                iOS开发 UITableView <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-显示-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-TRUE"><span class="nav-number">1.</span> <span class="nav-text">1. 显示.git目录：$ defaults write com.apple.finder AppleShowAllFiles TRUE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-隐藏-git目录：-defaults-write-com-apple-finder-AppleShowAllFiles-FALSE"><span class="nav-number">2.</span> <span class="nav-text">2. 隐藏.git目录：$ defaults write com.apple.finder AppleShowAllFiles FALSE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重启Finder：-killall-Finder"><span class="nav-number">3.</span> <span class="nav-text">3. 重启Finder：$ killall Finder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-当你的git仓库中还存在另一个git仓库B，提交时报错changes-not-staged-for-commit，解决方法：进入仓库B中删除-git文件夹，在回到仓库根目录重新提交代码即可"><span class="nav-number">4.</span> <span class="nav-text">4. 当你的git仓库中还存在另一个git仓库B，提交时报错changes not staged for commit，解决方法：进入仓库B中删除.git文件夹，在回到仓库根目录重新提交代码即可</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-SnapKit"><span class="nav-number">1.</span> <span class="nav-text">1. SnapKit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Masonry"><span class="nav-number">2.</span> <span class="nav-text">2. Masonry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-获取frame"><span class="nav-number">3.</span> <span class="nav-text">3. 获取frame</span></a></li></ol></div>
             
 
           </div>
