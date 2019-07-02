@@ -255,6 +255,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/2019-7-02 SkeletonView/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Chao Zheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lczalh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/17/2019-7-02 SkeletonView/" itemprop="url">iOS开发 SkeletonView</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T14:12:42+08:00">
+                2019-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/Juanpe/SkeletonView" title="SkeletonView" target="_blank" rel="noopener">SkeletonView</a>一种优雅的方式，向用户显示正在发生的事情，并为他们正在等待的内容做好准备</p>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p><code>pod &quot;SkeletonView&quot;</code></p>
+<h2 id="2-如何使用"><a href="#2-如何使用" class="headerlink" title="2.如何使用"></a>2.如何使用</h2><h3 id="2-1在适当的位置导入SkeletonView"><a href="#2-1在适当的位置导入SkeletonView" class="headerlink" title="2.1在适当的位置导入SkeletonView"></a>2.1在适当的位置导入SkeletonView</h3><p><code>import SkeletonView</code></p>
+<h3 id="2-2设置视图skeletonables"><a href="#2-2设置视图skeletonables" class="headerlink" title="2.2设置视图skeletonables"></a>2.2设置视图skeletonables</h3><p><code>avatarImageView.isSkeletonable = true</code></p>
+<h3 id="2-3显示骨架"><a href="#2-3显示骨架" class="headerlink" title="2.3显示骨架"></a>2.3显示骨架</h3><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">view</span>.showSkeleton()                 <span class="comment">// Solid</span></span><br><span class="line"><span class="keyword">view</span>.showGradientSkeleton()         <span class="comment">// Gradient</span></span><br><span class="line"><span class="keyword">view</span>.showAnimatedSkeleton()         <span class="comment">// Solid animated</span></span><br><span class="line"><span class="keyword">view</span>.showAnimatedGradientSkeleton() <span class="comment">// Gradient animated</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-4更新骨架（如颜色，动画等）"><a href="#2-4更新骨架（如颜色，动画等）" class="headerlink" title="2.4更新骨架（如颜色，动画等）"></a>2.4更新骨架（如颜色，动画等）</h3><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">view</span>.updateSkeleton()                 <span class="comment">// Solid</span></span><br><span class="line"><span class="keyword">view</span>.updateGradientSkeleton()         <span class="comment">// Gradient</span></span><br><span class="line"><span class="keyword">view</span>.updateAnimatedSkeleton()         <span class="comment">// Solid animated</span></span><br><span class="line"><span class="keyword">view</span>.updateAnimatedGradientSkeleton() <span class="comment">// Gradient animated</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-5隐藏骨架"><a href="#2-5隐藏骨架" class="headerlink" title="2.5隐藏骨架"></a>2.5隐藏骨架</h3><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">view</span>.hideSkeleton()</span><br></pre></td></tr></table></figure>
+<h2 id="3-UITableView"><a href="#3-UITableView" class="headerlink" title="3.UITableView"></a>3.UITableView</h2><p><img src="https://github.com/lczalh/blog/blob/master/source/images/SkeletonView/tableView.jpg?raw=true" alt="markdown" title="UITableView"></p>
+<h3 id="3-1遵守SkeletonTableViewDataSource协议，并实现协议方法"><a href="#3-1遵守SkeletonTableViewDataSource协议，并实现协议方法" class="headerlink" title="3.1遵守SkeletonTableViewDataSource协议，并实现协议方法"></a>3.1遵守<code>SkeletonTableViewDataSource</code>协议，并实现协议方法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SearchMovieViewController</span>: <span class="title">SkeletonTableViewDataSource</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.models.<span class="built_in">count</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> model = <span class="keyword">self</span>.models[indexPath.row]</span><br><span class="line">        <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"SearchMovieCell"</span>, <span class="keyword">for</span>: indexPath) <span class="keyword">as</span>! <span class="type">SearchMovieCell</span></span><br><span class="line">        <span class="keyword">if</span> model.vod_pic?.isEmpty == <span class="literal">false</span> &#123;</span><br><span class="line">            cell.movieImageView.kf.indicatorType = .activity</span><br><span class="line">            cell.movieImageView.kf.setImage(with: <span class="type">ImageResource</span>(downloadURL: <span class="type">URL</span>(string: model.vod_pic!)!), placeholder: <span class="type">UIImage</span>(named: <span class="string">"zanwutupian"</span>))</span><br><span class="line">        &#125;</span><br><span class="line">        cell.titleLabel.text = model.vod_name</span><br><span class="line">        cell.detailsLabel.text = model.vod_blurb</span><br><span class="line">        <span class="keyword">return</span> cell</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">collectionSkeletonView</span><span class="params">(<span class="number">_</span> skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">ReusableCellIdentifier</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"SearchMovieCell"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-设置视图skeletonables"><a href="#3-2-设置视图skeletonables" class="headerlink" title="3.2 设置视图skeletonables"></a>3.2 设置视图skeletonables</h3><figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">class SearchMovieCell: DiaryBaseTableViewCell &#123;</span><br><span class="line"></span><br><span class="line">/// 图片</span><br><span class="line"><span class="attribute">var movieImageView</span>: UIImageView!</span><br><span class="line"></span><br><span class="line">/// 标题</span><br><span class="line">var titleLabel: UILabel!</span><br><span class="line"></span><br><span class="line">/// 详情</span><br><span class="line">var detailsLabel: LCZAlignTopLabel!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">override func config() &#123;</span><br><span class="line">    self<span class="variable">.isSkeletonable</span> = true</span><br><span class="line">    movieImageView = UIImageView()</span><br><span class="line">    self<span class="variable">.contentView</span><span class="variable">.addSubview</span>(movieImageView)</span><br><span class="line">    movieImageView<span class="variable">.snp</span><span class="variable">.makeConstraints</span> &#123; (make) in</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalToSuperview</span>()<span class="variable">.offset</span>(15)</span><br><span class="line">        make<span class="variable">.centerY</span><span class="variable">.equalToSuperview</span>()</span><br><span class="line">        make<span class="variable">.height</span><span class="variable">.equalTo</span>(100)</span><br><span class="line">        make<span class="variable">.width</span><span class="variable">.equalTo</span>(80)</span><br><span class="line">    &#125;</span><br><span class="line">    movieImageView<span class="variable">.layer</span><span class="variable">.cornerRadius</span> = 5</span><br><span class="line">    movieImageView<span class="variable">.clipsToBounds</span> = true</span><br><span class="line">    movieImageView<span class="variable">.contentMode</span> = <span class="variable">.scaleAspectFill</span></span><br><span class="line">    movieImageView<span class="variable">.setContentHuggingPriority</span>(<span class="variable">.required</span>, for: <span class="variable">.horizontal</span>)</span><br><span class="line">    movieImageView<span class="variable">.setContentCompressionResistancePriority</span>(<span class="variable">.required</span>, for: <span class="variable">.horizontal</span>)</span><br><span class="line">    movieImageView<span class="variable">.isSkeletonable</span> = true</span><br><span class="line"></span><br><span class="line">    titleLabel = UILabel()</span><br><span class="line">    self<span class="variable">.contentView</span><span class="variable">.addSubview</span>(titleLabel)</span><br><span class="line">    titleLabel<span class="variable">.snp</span><span class="variable">.makeConstraints</span> &#123; (make) in</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(movieImageView<span class="variable">.snp</span><span class="variable">.right</span>)<span class="variable">.offset</span>(5)</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(movieImageView<span class="variable">.snp</span><span class="variable">.top</span>)</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalToSuperview</span>()<span class="variable">.offset</span>(-15)</span><br><span class="line">    &#125;</span><br><span class="line">    titleLabel<span class="variable">.font</span> = LCZBoldFontSize(size: 16)</span><br><span class="line">    titleLabel<span class="variable">.setContentHuggingPriority</span>(<span class="variable">.required</span>, for: <span class="variable">.vertical</span>)</span><br><span class="line">    titleLabel<span class="variable">.setContentCompressionResistancePriority</span>(<span class="variable">.required</span>, for: <span class="variable">.vertical</span>)</span><br><span class="line">    titleLabel<span class="variable">.text</span> = "xxxxxxxxx"</span><br><span class="line">    titleLabel<span class="variable">.isSkeletonable</span> = true</span><br><span class="line">    titleLabel<span class="variable">.textAlignment</span> = <span class="variable">.left</span></span><br><span class="line"></span><br><span class="line">    detailsLabel = LCZAlignTopLabel()</span><br><span class="line">    self<span class="variable">.contentView</span><span class="variable">.addSubview</span>(detailsLabel)</span><br><span class="line">    detailsLabel<span class="variable">.snp</span><span class="variable">.makeConstraints</span> &#123; (make) in</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(movieImageView<span class="variable">.snp</span><span class="variable">.right</span>)<span class="variable">.offset</span>(5)</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(titleLabel<span class="variable">.snp</span><span class="variable">.bottom</span>)<span class="variable">.offset</span>(5)</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalToSuperview</span>()<span class="variable">.offset</span>(-15)</span><br><span class="line">        make<span class="variable">.bottom</span><span class="variable">.equalTo</span>(movieImageView<span class="variable">.snp</span><span class="variable">.bottom</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    detailsLabel<span class="variable">.font</span> = LCZFontSize(size: 14)</span><br><span class="line">    detailsLabel<span class="variable">.numberOfLines</span> = 0;</span><br><span class="line">    <span class="attribute">detailsLabel.textColor = LCZRgbColor(160, 160, 160, 1)</span></span><br><span class="line"><span class="attribute">    detailsLabel.isSkeletonable = true</span></span><br><span class="line"><span class="attribute">    detailsLabel.textAlignment = .left</span></span><br><span class="line"><span class="attribute">    &#125;</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-显示骨架"><a href="#3-3-显示骨架" class="headerlink" title="3.3 显示骨架"></a>3.3 显示骨架</h3><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">self</span>.searchMovieView.<span class="built_in">table</span>View.visibleCells.<span class="keyword">for</span>Each &#123; <span class="variable">$0</span>.showAnimatedGradientSkeleton(usingGradient: SkeletonGradient(baseColor: UIColor.clouds),animation: GradientDirection.topLeftBottomRight.slidingAnimation()) &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-UICollectionView"><a href="#4-UICollectionView" class="headerlink" title="4.UICollectionView"></a>4.UICollectionView</h2><p><img src="https://github.com/lczalh/blog/blob/master/source/images/SkeletonView/collectionView.jpg?raw=true" alt="markdown" title="UICollectionView"></p>
+<h3 id="4-1-遵守SkeletonCollectionViewDataSource协议，并实现协议方法"><a href="#4-1-遵守SkeletonCollectionViewDataSource协议，并实现协议方法" class="headerlink" title="4.1 遵守SkeletonCollectionViewDataSource协议，并实现协议方法"></a>4.1 遵守<code>SkeletonCollectionViewDataSource</code>协议，并实现协议方法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">collectionSkeletonView</span><span class="params">(<span class="number">_</span> skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath)</span></span> -&gt; <span class="type">ReusableCellIdentifier</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"MovieHomeCell"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">collectionView</span><span class="params">(<span class="number">_</span> collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UICollectionViewCell</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> cell = collectionView.dequeueReusableCell(withReuseIdentifier: <span class="string">"MovieHomeCell"</span>, <span class="keyword">for</span>: indexPath) <span class="keyword">as</span>! <span class="type">MovieHomeCell</span></span><br><span class="line">    <span class="keyword">let</span> model = <span class="keyword">self</span>.models[indexPath.row]</span><br><span class="line">    <span class="keyword">if</span> model.vod_pic?.isEmpty == <span class="literal">false</span> &#123;</span><br><span class="line">        cell.imageView.kf.indicatorType = .activity</span><br><span class="line">        cell.imageView.kf.setImage(with: <span class="type">ImageResource</span>(downloadURL: <span class="type">URL</span>(string: model.vod_pic!)!), placeholder: <span class="type">UIImage</span>(named:<span class="string">"zanwutupian"</span>))</span><br><span class="line">    &#125;</span><br><span class="line">    cell.titleLabel.text = model.vod_name</span><br><span class="line">    <span class="keyword">return</span> cell</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 显示骨架cell的个数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">collectionSkeletonView</span><span class="params">(<span class="number">_</span> skeletonView: UICollectionView, numberOfItemsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-设置视图skeletonables"><a href="#4-2-设置视图skeletonables" class="headerlink" title="4.2 设置视图skeletonables"></a>4.2 设置视图skeletonables</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class MovieHomeCell: DiaryBaseCollectionViewCell &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 图片</span></span><br><span class="line"><span class="selector-tag">var</span> imageView = UIImageView()</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 标题</span></span><br><span class="line"><span class="selector-tag">var</span> titleLabel = UILabel()</span><br><span class="line"></span><br><span class="line">override func config() &#123;</span><br><span class="line">    self<span class="selector-class">.isSkeletonable</span> = true</span><br><span class="line">    self<span class="selector-class">.contentView</span><span class="selector-class">.layer</span><span class="selector-class">.cornerRadius</span> = <span class="number">10</span></span><br><span class="line">    self<span class="selector-class">.layer</span><span class="selector-class">.cornerRadius</span> = <span class="number">10</span></span><br><span class="line">    self<span class="selector-class">.contentView</span><span class="selector-class">.clipsToBounds</span> = true</span><br><span class="line"></span><br><span class="line">    self<span class="selector-class">.contentView</span><span class="selector-class">.addSubview</span>(self.titleLabel)</span><br><span class="line">    self<span class="selector-class">.titleLabel</span><span class="selector-class">.font</span> = LCZBoldFontSize(size: <span class="number">16</span>)</span><br><span class="line">    self<span class="selector-class">.titleLabel</span><span class="selector-class">.snp</span><span class="selector-class">.makeConstraints</span>(&#123; (make) <span class="keyword">in</span></span><br><span class="line">        make<span class="selector-class">.bottom</span><span class="selector-class">.equalToSuperview</span>().offset(-<span class="number">10</span>)</span><br><span class="line">        make<span class="selector-class">.left</span><span class="selector-class">.equalToSuperview</span>().offset(<span class="number">10</span>)</span><br><span class="line">        make<span class="selector-class">.right</span><span class="selector-class">.equalToSuperview</span>().offset(-<span class="number">10</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    self<span class="selector-class">.titleLabel</span><span class="selector-class">.textAlignment</span> = .center</span><br><span class="line">    self<span class="selector-class">.titleLabel</span><span class="selector-class">.font</span> = LCZFontSize(size: <span class="number">14</span>)</span><br><span class="line">    self<span class="selector-class">.titleLabel</span><span class="selector-class">.textColor</span> = LCZHexadecimalColor(hexadecimal: <span class="string">"#FECE1D"</span>)</span><br><span class="line">    self<span class="selector-class">.titleLabel</span><span class="selector-class">.isSkeletonable</span> = true</span><br><span class="line">    self<span class="selector-class">.titleLabel</span><span class="selector-class">.text</span> = <span class="string">"乐淘视界"</span></span><br><span class="line"></span><br><span class="line">    self<span class="selector-class">.contentView</span><span class="selector-class">.addSubview</span>(self.imageView)</span><br><span class="line">    self<span class="selector-class">.imageView</span><span class="selector-class">.contentMode</span> = .scaleAspectFill</span><br><span class="line">    self<span class="selector-class">.imageView</span><span class="selector-class">.clipsToBounds</span> = true</span><br><span class="line">    self<span class="selector-class">.imageView</span><span class="selector-class">.snp</span><span class="selector-class">.makeConstraints</span> &#123; (make) <span class="keyword">in</span></span><br><span class="line">        make<span class="selector-class">.left</span><span class="selector-class">.top</span><span class="selector-class">.right</span><span class="selector-class">.equalToSuperview</span>()</span><br><span class="line">        make<span class="selector-class">.bottom</span><span class="selector-class">.equalTo</span>(self<span class="selector-class">.titleLabel</span><span class="selector-class">.snp</span><span class="selector-class">.top</span>).offset(-<span class="number">10</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    self<span class="selector-class">.imageView</span><span class="selector-class">.isSkeletonable</span> = true</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-显示骨架-1"><a href="#3-3-显示骨架-1" class="headerlink" title="3.3 显示骨架"></a>3.3 显示骨架</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">view.isSkeletonable = <span class="literal">true</span></span><br><span class="line">self.moreMoviesView.collectionView.prepareSkeleton(<span class="string">completion:</span> &#123; done <span class="keyword">in</span></span><br><span class="line">    self.view.showAnimatedGradientSkeleton(<span class="string">usingGradient:</span> SkeletonGradient(<span class="string">baseColor:</span> UIColor.clouds),</span><br><span class="line"><span class="symbol">    animation:</span> GradientDirection.topLeftBottomRight.slidingAnimation())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/2019-6-13 UILabel/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1339,131 +1473,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/27/2019-4-27 MySQL 8访问报错/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liu Chao Zheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lczalh">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/27/2019-4-27 MySQL 8访问报错/" itemprop="url">MAC MyBatis访问MySQL 8 报错consider upgrading MySQL client</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T14:17:11+08:00">
-                2019-04-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原因是：安装MySQL 8过程中的Authentication Method这一配置过程，基于不同的加密方式。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 登录MySQL</span><br><span class="line">mysql -u root -p</span><br><span class="line">// 更改加密方式 (666666为mMySQL密码)</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'666666'</span> <span class="keyword">PASSWORD</span> <span class="keyword">EXPIRE</span> <span class="keyword">NEVER</span>;</span><br><span class="line">// 更改密码</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'666666'</span>;</span><br><span class="line">// 重启MySQL</span><br><span class="line">mysql.server restart</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-常见问题"><a href="#2-常见问题" class="headerlink" title="2.常见问题"></a>2.常见问题</h2><h3 id="2-1-MySQL-8-driver为：com-mysql-cj-jdbc-Driver"><a href="#2-1-MySQL-8-driver为：com-mysql-cj-jdbc-Driver" class="headerlink" title="2.1 MySQL 8 driver为：com.mysql.cj.jdbc.Driver"></a>2.1 MySQL 8 driver为：com.mysql.cj.jdbc.Driver</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Loading class `com.mysql.jdbc.Drive<span class="string">r'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'</span>. The driver is automatically registered via the SPI and</span><br><span class="line">manual loading of the driver class is generally unnecessary.</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-url中没有设置useSSL-false"><a href="#2-2-url中没有设置useSSL-false" class="headerlink" title="2.2 url中没有设置useSSL=false"></a>2.2 url中没有设置useSSL=false</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARN: Establishing SSL connection <span class="keyword">without</span> server's identity verification <span class="keyword">is</span> <span class="keyword">not</span> recommended. According <span class="keyword">to</span> MySQL <span class="number">5.5</span><span class="number">.45</span>+, <span class="number">5.6</span><span class="number">.26</span>+ <span class="keyword">and</span> <span class="number">5.7</span><span class="number">.6</span>+ requirements &lt;br&gt;SSL connection must be established <span class="keyword">by</span> default <span class="keyword">if</span> explicit option <span class="keyword">isn't</span> <span class="keyword">set</span>. For compliance <span class="keyword">with</span> existing applications <span class="keyword">not</span> using SSL <span class="keyword">the</span> verifyServerCertificate&lt;br&gt; <span class="keyword">property</span> <span class="keyword">is</span> <span class="keyword">set</span> <span class="keyword">to</span> '<span class="literal">false</span>'.You need either <span class="keyword">to</span> explicitly disable SSL <span class="keyword">by</span> setting useSSL=<span class="literal">false</span>, <span class="keyword">or</span> <span class="keyword">set</span> useSSL=<span class="literal">true</span> <span class="keyword">and</span> provide truststore <span class="keyword">for</span> server certificate&lt;br&gt; verification.</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-url中没有设置serverTimezone-UTC"><a href="#2-3-url中没有设置serverTimezone-UTC" class="headerlink" title="2.3 url中没有设置serverTimezone=UTC"></a>2.3 url中没有设置serverTimezone=UTC</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The server <span class="built_in">time</span> zone <span class="built_in">value</span> <span class="string">'???ú±ê×??±??'</span> is unrecognized <span class="keyword">or</span> represents more than <span class="literal">one</span> <span class="built_in">time</span> zone. You must configure either <span class="keyword">the</span> server <span class="keyword">or</span> JDBC driver (via <span class="keyword">the</span> </span><br><span class="line">serverTimezone configuration property) <span class="built_in">to</span> use <span class="keyword">a</span> more specifc <span class="built_in">time</span> zone <span class="built_in">value</span> <span class="keyword">if</span> you want <span class="built_in">to</span> utilize <span class="built_in">time</span> zone support.</span><br></pre></td></tr></table></figure>
-<h3 id="2-4-url中参数没有用-拼接-amp-gt-amp"><a href="#2-4-url中参数没有用-拼接-amp-gt-amp" class="headerlink" title="2.4 url中参数没有用;拼接  &amp; -&gt; &amp;"></a>2.4 url中参数没有用;拼接  &amp; -&gt; &amp;</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The <span class="keyword">reference</span> <span class="keyword">to</span> entity “useSSL” must <span class="keyword">end</span> <span class="keyword">with</span> <span class="keyword">the</span> ‘;’ delimiter.</span><br></pre></td></tr></table></figure>
-<h2 id="3-MySQL-8-连接配置"><a href="#3-MySQL-8-连接配置" class="headerlink" title="3. MySQL 8 连接配置"></a>3. MySQL 8 连接配置</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"driver"</span> <span class="attribute">value</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span>/&gt; </span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"url"</span> <span class="attribute">value</span>=<span class="string">"jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC&amp;amp;characterEncoding=utf8&amp;amp;useUnicode=true&amp;amp;useSSL=false"</span>/&gt;</span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"username"</span> <span class="attribute">value</span>=<span class="string">"root"</span>/&gt;</span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"password"</span> <span class="attribute">value</span>=<span class="string">"123456"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1512,7 +1521,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

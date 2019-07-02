@@ -255,6 +255,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/27/2019-4-27 MySQL 8访问报错/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Chao Zheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lczalh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/27/2019-4-27 MySQL 8访问报错/" itemprop="url">MAC MyBatis访问MySQL 8 报错consider upgrading MySQL client</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T14:17:11+08:00">
+                2019-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原因是：安装MySQL 8过程中的Authentication Method这一配置过程，基于不同的加密方式。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 登录MySQL</span><br><span class="line">mysql -u root -p</span><br><span class="line">// 更改加密方式 (666666为mMySQL密码)</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'666666'</span> <span class="keyword">PASSWORD</span> <span class="keyword">EXPIRE</span> <span class="keyword">NEVER</span>;</span><br><span class="line">// 更改密码</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'666666'</span>;</span><br><span class="line">// 重启MySQL</span><br><span class="line">mysql.server restart</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-常见问题"><a href="#2-常见问题" class="headerlink" title="2.常见问题"></a>2.常见问题</h2><h3 id="2-1-MySQL-8-driver为：com-mysql-cj-jdbc-Driver"><a href="#2-1-MySQL-8-driver为：com-mysql-cj-jdbc-Driver" class="headerlink" title="2.1 MySQL 8 driver为：com.mysql.cj.jdbc.Driver"></a>2.1 MySQL 8 driver为：com.mysql.cj.jdbc.Driver</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Loading class `com.mysql.jdbc.Drive<span class="string">r'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'</span>. The driver is automatically registered via the SPI and</span><br><span class="line">manual loading of the driver class is generally unnecessary.</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-url中没有设置useSSL-false"><a href="#2-2-url中没有设置useSSL-false" class="headerlink" title="2.2 url中没有设置useSSL=false"></a>2.2 url中没有设置useSSL=false</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARN: Establishing SSL connection <span class="keyword">without</span> server's identity verification <span class="keyword">is</span> <span class="keyword">not</span> recommended. According <span class="keyword">to</span> MySQL <span class="number">5.5</span><span class="number">.45</span>+, <span class="number">5.6</span><span class="number">.26</span>+ <span class="keyword">and</span> <span class="number">5.7</span><span class="number">.6</span>+ requirements &lt;br&gt;SSL connection must be established <span class="keyword">by</span> default <span class="keyword">if</span> explicit option <span class="keyword">isn't</span> <span class="keyword">set</span>. For compliance <span class="keyword">with</span> existing applications <span class="keyword">not</span> using SSL <span class="keyword">the</span> verifyServerCertificate&lt;br&gt; <span class="keyword">property</span> <span class="keyword">is</span> <span class="keyword">set</span> <span class="keyword">to</span> '<span class="literal">false</span>'.You need either <span class="keyword">to</span> explicitly disable SSL <span class="keyword">by</span> setting useSSL=<span class="literal">false</span>, <span class="keyword">or</span> <span class="keyword">set</span> useSSL=<span class="literal">true</span> <span class="keyword">and</span> provide truststore <span class="keyword">for</span> server certificate&lt;br&gt; verification.</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-url中没有设置serverTimezone-UTC"><a href="#2-3-url中没有设置serverTimezone-UTC" class="headerlink" title="2.3 url中没有设置serverTimezone=UTC"></a>2.3 url中没有设置serverTimezone=UTC</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The server <span class="built_in">time</span> zone <span class="built_in">value</span> <span class="string">'???ú±ê×??±??'</span> is unrecognized <span class="keyword">or</span> represents more than <span class="literal">one</span> <span class="built_in">time</span> zone. You must configure either <span class="keyword">the</span> server <span class="keyword">or</span> JDBC driver (via <span class="keyword">the</span> </span><br><span class="line">serverTimezone configuration property) <span class="built_in">to</span> use <span class="keyword">a</span> more specifc <span class="built_in">time</span> zone <span class="built_in">value</span> <span class="keyword">if</span> you want <span class="built_in">to</span> utilize <span class="built_in">time</span> zone support.</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-url中参数没有用-拼接-amp-gt-amp"><a href="#2-4-url中参数没有用-拼接-amp-gt-amp" class="headerlink" title="2.4 url中参数没有用;拼接  &amp; -&gt; &amp;"></a>2.4 url中参数没有用;拼接  &amp; -&gt; &amp;</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The <span class="keyword">reference</span> <span class="keyword">to</span> entity “useSSL” must <span class="keyword">end</span> <span class="keyword">with</span> <span class="keyword">the</span> ‘;’ delimiter.</span><br></pre></td></tr></table></figure>
+<h2 id="3-MySQL-8-连接配置"><a href="#3-MySQL-8-连接配置" class="headerlink" title="3. MySQL 8 连接配置"></a>3. MySQL 8 连接配置</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"driver"</span> <span class="attribute">value</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span>/&gt; </span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"url"</span> <span class="attribute">value</span>=<span class="string">"jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC&amp;amp;characterEncoding=utf8&amp;amp;useUnicode=true&amp;amp;useSSL=false"</span>/&gt;</span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"username"</span> <span class="attribute">value</span>=<span class="string">"root"</span>/&gt;</span><br><span class="line">&lt;property <span class="attribute">name</span>=<span class="string">"password"</span> <span class="attribute">value</span>=<span class="string">"123456"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/2019-4-18 MAC 安装Tomcat/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1318,7 +1443,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
